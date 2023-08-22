@@ -1,0 +1,71 @@
+* notes on game mechanics
+** food
+killing creatures drops ingredients
+ingredients can be turned into food
+food heals your creatures
+** towns have taverns
+taverns allow you to cook and talk to npcs
+* misc info from youtube videos for guidelines
+** notes on survival game
+break down larger things into raw materials
+** What makes a good rpg town
+https://www.youtube.com/watch?v=uXleufh2mY0
+should a sanctuary and place for world building
+a place to resupply and prepare for more battles
+
+it is a break from combat gameplay
+other types of gameplay...dialogue, puzzles, secrets, minigames
+learn about the world
+sidequests
+
+** what makes a good rpg
+https://www.youtube.com/watch?v=InHohauA8KE
+
+=what an rpg is=
+choice in consequence
+unique builds - can't fill out an entire skill tree
+wall you off from other content, you can feel the effects of choices
+choice and consequence is vital
+insert your into the game
+
+* combo names
+** alien
+** air
+** chaos
+radiation + chaos = atomic
+** earth
+** electricity
+** evil
+evil + air = tornado
+evil + water = flood
+evil + fire = inferno
+evil + ice = blizzard
+** fire
+earth + fire = lava
+earth + air = sandstorm
+earth + ice = tundra
+earth + poison = pollution
+earth + water = mud
+** holiness
+** ice
+ice + air
+ice + water
+ice + earth
+ice + evil
+ice + holiness = yule
+ice + plant =
+** metal
+** mutation
+** normal
+** plant
+** poison
+air + poison = smog
+** radiation
+** undead
+** water
+flood - water evil
+swamp - water poison
+mud - water earth
+steam - water fire
+liquid metal - water and metal
+
