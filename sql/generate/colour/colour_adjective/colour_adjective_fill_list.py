@@ -56,18 +56,18 @@ class Adj(Enum):
     DAINTY = 28
     DANK = 29
     DARING = 30
-    DARK = 31
-    DAZZLING = 32
-    DEEP = 33
-    DELICATE = 34
-    DISTINCTIVE = 35
-    DRAMATIC = 36
-    DREAMY = 37
-    EARTHY = 38
-    ELEGANT = 39
-    ENCHANTING = 40
-    ENERGETIC = 41
-    EXPRESSIVE = 42
+    DAZZLING = 31
+    DEEP = 32
+    DELICATE = 33
+    DISTINCTIVE = 34
+    DRAMATIC = 35
+    DREAMY = 36
+    EARTHY = 37
+    ELEGANT = 38
+    ENCHANTING = 39
+    ENERGETIC = 40
+    EXPRESSIVE = 41
+    BEAUTIFUL = 42
 
 c = {col.name.lower(): col.value for col in Col}
 
@@ -206,19 +206,12 @@ colour_adjective_fill_list = [
     (a["cheerful"], c["magenta"]),
     (a["cheerful"], c["silver"]),
     (a["cheerful"], c["orange"]),
-    (a["cheerful"], c["brown"]),
     (a["cheerful"], c["yellow"]),
-    (a["cheerful"], c["black"]),
     (a["cheerful"], c["red"]),
     (a["cheerful"], c["white"]),
-    (a["cheerful"], c["cyan"]),
-    (a["cheerful"], c["dgrey"]),
     (a["cheerful"], c["maroon"]),
-    (a["cheerful"], c["grey"]),
     (a["cheerful"], c["green"]),
     (a["cheerful"], c["purple"]),
-    (a["cheerful"], c["lime"]),
-    (a["cheerful"], c["dgreen"]),
     (a["cheerful"], c["blue"]),
     (a["cheerful"], c["gold"]),
 
@@ -289,7 +282,79 @@ colour_adjective_fill_list = [
 
     (a["cosmic"], c["black"]),
     
-    (a["cosy"], c["brown"])
+    (a["cosy"], c["brown"]),
+
+    (a["crisp"], c["silver"]),
+    (a["crisp"], c["white"]),
+    (a["crisp"], c["lime"]),
+    (a["crisp"], c["blue"]),
+    (a["crisp"], c["gold"]),
+
+    (a["crispy"], c["brown"]),
+    (a["crispy"], c["yellow"]),
+    (a["crispy"], c["gold"]),
+
+    (a["curious"], c["pink"]),
+    (a["curious"], c["magenta"]),
+    (a["curious"], c["silver"]),
+    (a["curious"], c["orange"]),
+    (a["curious"], c["brown"]),
+    (a["curious"], c["yellow"]),
+    (a["curious"], c["black"]),
+    (a["curious"], c["red"]),
+    (a["curious"], c["white"]),
+    (a["curious"], c["cyan"]),
+    (a["curious"], c["dgrey"]),
+    (a["curious"], c["maroon"]),
+    (a["curious"], c["grey"]),
+    (a["curious"], c["green"]),
+    (a["curious"], c["purple"]),
+    (a["curious"], c["lime"]),
+    (a["curious"], c["dgreen"]),
+    (a["curious"], c["blue"]),
+    (a["curious"], c["gold"]),
+
+    (a["dainty"], c["pink"]),
+    (a["dainty"], c["magenta"]),
+    (a["dainty"], c["silver"]),
+    (a["dainty"], c["orange"]),
+    (a["dainty"], c["yellow"]),
+    (a["dainty"], c["gold"]),
+
+    (a["dank"], c["green"]),
+    (a["dank"], c["dgreen"]),
+
+    (a["daring"], c["pink"]),
+    (a["daring"], c["magenta"]),
+    (a["daring"], c["silver"]),
+    (a["daring"], c["orange"]),
+    (a["daring"], c["brown"]),
+    (a["daring"], c["yellow"]),
+    (a["daring"], c["black"]),
+    (a["daring"], c["red"]),
+    (a["daring"], c["white"]),
+    (a["daring"], c["cyan"]),
+    (a["daring"], c["dgrey"]),
+    (a["daring"], c["maroon"]),
+    (a["daring"], c["grey"]),
+    (a["daring"], c["green"]),
+    (a["daring"], c["purple"]),
+    (a["daring"], c["lime"]),
+    (a["daring"], c["dgreen"]),
+    (a["daring"], c["blue"]),
+    (a["daring"], c["gold"]),
+
+    (a["dazzling"], c["pink"]),
+    (a["dazzling"], c["magenta"]),
+    (a["dazzling"], c["silver"]),
+    (a["dazzling"], c["orange"]),
+    (a["dazzling"], c["yellow"]),
+    (a["dazzling"], c["red"]),
+    (a["dazzling"], c["white"]),
+    (a["dazzling"], c["cyan"]),
+    (a["dazzling"], c["green"]),
+    (a["dazzling"], c["blue"]),
+    (a["dazzling"], c["gold"])
 ]
     
 '''  

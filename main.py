@@ -2,15 +2,14 @@ import sys
 import sqlite3
 import pandas as pd
 
-from sql.generate.scrabble.scrabble import scrabble_create
 from sql.generate.colour.colour import colour_create
 from sql.generate.colour.colour_adjective.colour_adjective import colour_adjective_create
 from sql.generate.colour.colour_adjective.colour_adjective_fill import colour_adjective_fill_create
 
-sql_table_drop = lambda cursor, table_name: cursor.execute(f"DROP TABLE IF EXISTS {table_name}")
-sql_table_print = lambda cursor, table_name: print(cursor.execute(f"SELECT * FROM {table_name}").fetchall())
+def sql_table_drop(): lambda cursor, table_name: cursor.execute(f"DROP TABLE IF EXISTS {table_name}")
+def sql_table_print(): lambda cursor, table_name: print(cursor.execute(f"SELECT * FROM {table_name}").fetchall())
 
-sql_change_print = lambda connection : print(f"(total connection changes)=>{connection.total_changes}", end='\n')
+def sql_change_print(): lambda connection : print(f"(total connection changes)=>{connection.total_changes}", end='\n')
 
 
 def main() -> int:
