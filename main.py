@@ -23,16 +23,6 @@ def main() -> int:
     # make a pointer to issue sql statements to database
     cursor = connection.cursor()
 
-    #scrabble_create(connection, cursor)
-    #df_scrabble = pd.read_sql_query('SELECT * FROM scrabble', connection)
-    #print(df_scrabble)
-    #filtered_df = df_scrabble[(df_scrabble["irish_quantity"] != 0) & (df_scrabble["portuguese_quantity"]  != 0)][['letter', 'english_value', 'english_quantity', 'irish_value', 'irish_quantity']]
-    #print(filtered_df)
-    #vowels = df_scrabble[df_scrabble['is_vowel'] == True][['letter', 'english_quantity', 'english_value']]
-    #print(sum(vowels['english_quantity']))
-    # roll_dice(1, 20, 3)
-
-
     # get PANDAS dataframe
     colour_create(connection, cursor)
     df_colour = pd.read_sql_query('SELECT * FROM colour', connection)
