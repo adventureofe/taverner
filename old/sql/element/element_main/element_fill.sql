@@ -1,0 +1,20 @@
+INSERT INTO element(name, type, colour, describer)
+VALUES
+    ('typeless',    1, 01, 'none'),
+    ('alien',       3, 02, 'extraterrestrial'),
+    ('air',         3, 04, 'gusty'),
+    ('chaos',       2, 05, 'chaotic'),
+    ('earth',       2, 06, 'earthy'),
+    ('electricity', 3, 07, 'electric'),
+    ('evil',        2, 08, 'sinister'),
+    ('fire',        3, 09, 'blazing'),
+    ('holiness',    2, 10, 'holy'),
+    ('ice',         3, 11, 'frosty'),
+    ('metal',       2, 12, 'metallic'),
+    ('mutation',    2, 13, 'mutated'),
+    ('normal',      2 ,14, 'strong'),
+    ('plant',       3, 15, 'natural'),
+    ('poison',      2, 16, 'venomous'),
+    ('radiation',   3, 17, 'atomic'),
+    ('undead',      2, 18, 'zombie'),
+    ('water',       3, 19, 'wet');

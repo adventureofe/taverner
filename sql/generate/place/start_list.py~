@@ -1,0 +1,21 @@
+start_list = [
+#name #region # syllable
+    ('abbey', 'irish', 2),
+    ('abbey', 'english', 2),
+    ('anna', 'english', 2),
+    ('anna', 'irish', 2),
+    ('ash', 'irish', 1),
+    ('ash', 'england', 1),
+    ('ard', 'irish', 1),
+    ('augh', 'irish', 1),
+    ('bally', 'irish', 2),
+    ('bun', 'irish', 1),
+    ('bel', 'irish', 1),
+    ('cole', 'irish', 1),
+    ('cush', 'irish', 1),
+    ('dun', 'irish', 1),
+    ('dunnagh', 'irish', 2),
+    ('donny', 'irish', 2),
+    ('drum', 'irish', 1),
+    ('glen', 'irish', 1),
+]

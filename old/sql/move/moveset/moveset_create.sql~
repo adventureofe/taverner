@@ -1,0 +1,26 @@
+.mode column
+.headers ON
+.separator ROW "\n"
+.nullvalue NULL
+
+-- use sqlite3 on taverner.db
+-- use .read to read sql files
+
+DROP TABLE IF EXISTS moveset;
+CREATE TABLE moveset
+(
+    id INTEGER PRIMARY KEY,
+    name TEXT NOT NULL CHECK(length(name) < 64),
+    element INTEGER NOT NULL,
+    type INTEGER NOT NULL,
+    priority INTEGER NOT NULL,
+    category INTEGER NOT NULL,
+    ai_prompt INTEGER NOT NULL,
+    effect INTEGER NOT NULL,
+    chance INTEGER NOT NULL,
+    FOREIGN KEY(element) REFERENCES element(id),
+    FOREIGN KEY(type) REFERENCES move_type(id),
+    FOREIGN KEY(effect) REFERENCES move_effect(id),
+    FOREIGN KEY(category) REFERENCES move_category(id),
+    FOREIGN KEY (ai_prompt) REFERENCES move_ai_prompt(id)
+);

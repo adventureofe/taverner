@@ -1,0 +1,19 @@
+* Taverner
+turn based RPG
+
+Currently creating huge SQLite3 database to store all const information
+
+** Folders
+*** assets
+all image data will be stored here
+
+images will be used in SDL2
+*** c
+the final game will be created in C using SDL2 for graphics
+
+SDL2 boilerplate is already in place
+
+Game currently stores sqlite data using linked lists for prototype.
+
+linked lists are not optimal for these tasks but are quick to implement for proof of concept
+as opposed to hashmaps
