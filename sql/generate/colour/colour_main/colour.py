@@ -2,10 +2,9 @@ import sys
 import sqlite3
 import pandas as pd
 
-from sql.generate.colour.colour_list import colour_list
+from sql.generate.colour.colour_main.colour_list import colour_list
 
-sql_table_drop = lambda cursor, table_name: cursor.execute(f"DROP TABLE IF EXISTS {table_name}")
-sql_table_print = lambda cursor, table_name: print(cursor.execute(f"SELECT * FROM {table_name}").fetchall())
+def sql_table_drop(cursor, table_name): cursor.execute(f"DROP TABLE IF EXISTS {table_name}")
 
 def colour_create(connection, cursor):
     # overwrite existing table if it already exists

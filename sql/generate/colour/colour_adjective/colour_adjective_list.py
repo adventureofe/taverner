@@ -1,141 +1,145 @@
 colour_adjective_list = [
-    ("aerial"), #001
-    ("aesthetic"), #002
-    ("angelic"), #003
-    ("astonishing"), #004
-    ("bewildering"), #005
-    ("bitter"),#006
-    ("blush"), #007
-    ("bold"), #008
-    ("brash"), #009
-    ("bright"), #010 
-    ("brilliant"),#011
-    ("calm"), #012
-    ("calming"), #013
-    ("charming"), #14
-    ("cheerful"), #15
-    ("chill"), #016
-    ("chilly"), #017
-    ("classic"), #018
-    ("cloudy"), #19
-    ("cold"), #020
-    ("confident"), #021
-    ("cool"), #022
-    ("cosmic"), #023
-    ("cosy"), #024
-    ("crisp"), #025
-    ("crispy"), #026
-    ("curious"), #027
-    ("dainty"), #028
-    ("dank"), #029
-    ("daring"), #030
-    ("dark"), #031
-    ("dazzling"), #032
-    ("deep"), #033
-    ("delicate"), #034
-    ("distinctive"), #035
-    ("dramatic"), #036
-    ("dreamy"), #037
-    ("earthy"), #038
-    ("elegant"), #39
-    ("enchanting"), #040
-    ("energetic"), #041
-    ("expressive"), #042
-    ("exquisite"), #043
-    ("fancy"), #044
-    ("fierce"), #045
-    ("fiery"), #046
-    ("fresh"), #047
-    ("frosty"), #048
-    ("frozen"), #049
-    ("funky"), #050
-    ("ghostly"), #051
-    ("gleaming"), #052
-    ("glistening"), #053
-    ("glorious"), #054
-    ("glossy"), #055
-    ("glowing"), #056
-    ("graceful"), #057
-    ("grand"), #058
-    ("groovy"), #059
-    ("haunting"), #060
-    ("hip"), #061
-    ("hot"), #062
-    ("icy"), #063
-    ("intense"), #064
-    ("invigorating"), #065
-    ("jazzy"), #066
-    ("legendary"), #067
-    ("lively"), #068
-    ("lovely"), #069
-    ("lucky"), #070
-    ("lush"), #071
-    ("lustrous"),#072
-    ("luxurious"), #073
-    ("majestic"), #074
-    ("mellow"), #075
-    ("metallic"), #076
-    ("moody"), #077
-    ("mysterious"), #078
-    ("mystic"), #079
-    ("natural"), #080
-    ("neat"), #081
-    ("nifty"), #082
-    ("noble"), #083
-    ("opulent"), #084
-    ("passionate"), #085
-    ("pasty"), #085
-    ("pearly"), #086
-    ("playful"), #087
-    ("plush"), #088
-    ("poignant"), #089
-    ("powerful"), #090
-    ("pretentious"), #091
-    ("pure"), #092
-    ("quaint"), #093
-    ("quirky"), #094
-    ("radiant"), #095
-    ("regal"), #096
-    ("rich"), #097
-    ("ripe"), #098
-    ("romantic"), #099
-    ("royal"), #100
-    ("rustic"), #100
-    ("rusty"), #101
-    ("serene"), #102
-    ("shimmering"), #103
-    ("shiny"), #104
-    ("silky"), #105
-    ("sky"), #106
-    ("sleek"), #107
-    ("smart"), #108
-    ("snow"), #109
-    ("soft"), #110
-    ("soily"), #111
-    ("sombre"), #112
-    ("soothing"), #113
-    ("sophisticated"), #114
-    ("stormy"), #115
-    ("stylish"), #116
-    ("subdued"), #117
-    ("sublime"), #118
-    ("subtle"), #119
-    ("sunny"), #120
-    ("tasteful"), #121
-    ("terrific"), #122
-    ("timeless"), #123
-    ("tranquil"), #124
-    ("trusty"), #125
-    ("unusual"), #126
-    ("velvety"), #127
-    ("verdant"), #128
-    ("vibrant"), #129
-    ("vivid"), #130
-    ("warm"), #131
-    ("watery"), #132
-    ("whimsical"), #133
-    ("wild"), #134
-    ("winter"), #135
-    ("zany"), #136
-    ("zesty") #137
+    ("aerial"), 
+    ("aesthetic"), 
+    ("angelic"), 
+    ("astonishing"), 
+    ("beautiful"),
+    ("bewildering"), 
+    ("bitter"),
+    ("blush"), 
+    ("bold"), 
+    ("brash"), 
+    ("bright"), 
+    ("brilliant"),
+    ("calm"), 
+    ("calming"), 
+    ("charming"), 
+    ("cheerful"),
+    ("chill"), 
+    ("chilly"), 
+    ("classic"), 
+    ("cloudy"), 
+    ("cold"), 
+    ("confident"), 
+    ("cool"), 
+    ("cosmic"), 
+    ("cosy"), 
+    ("crisp"), 
+    ("crispy"), 
+    ("curious"), 
+    ("dainty"), 
+    ("dank"), 
+    ("daring"), 
+    ("dazzling"), 
+    ("deep"), 
+    ("delicate"), 
+    ("distinctive"), 
+    ("dramatic"), 
+    ("dreamy"), 
+    ("earthy"), 
+    ("elegant"), 
+    ("enchanting"), 
+    ("energetic"), 
+    ("expressive"), 
+    ("exquisite"), 
+    ("fancy"), 
+    ("fierce"), 
+    ("fiery"), 
+    ("fresh"), 
+    ("frosty"), 
+    ("funky"), 
+    ("gleaming"), 
+    ("glistening"), 
+    ("glorious"), 
+    ("glossy"), 
+    ("glowing"),
+    ("gorgeous"),
+    ("graceful"), 
+    ("grand"), 
+    ("groovy"),
+    ("handsome"),
+    ("haunting"), 
+    ("hip"), 
+    ("homely"),
+    ("hot"), 
+    ("icy"), 
+    ("intense"), 
+    ("invigorating"), 
+    ("jazzy"), 
+    ("legendary"), 
+    ("lively"), 
+    ("lovely"), 
+    ("lucky"), 
+    ("lush"), 
+    ("lustrous"),
+    ("luxurious"), 
+    ("magnificent"),
+    ("majestic"), 
+    ("mellow"), 
+    ("metallic"), 
+    ("moody"), 
+    ("mysterious"), 
+    ("mystic"), 
+    ("natural"), 
+    ("neat"), 
+    ("nifty"), 
+    ("noble"), 
+    ("opulent"), 
+    ("passionate"), 
+    ("pasty"), 
+    ("pearly"), 
+    ("picturesque"),
+    ("pulchritudinous"),
+    ("playful"), 
+    ("plush"), 
+    ("poignant"), 
+    ("powerful"), 
+    ("pretentious"), 
+    ("pure"), 
+    ("quaint"), 
+    ("quirky"), 
+    ("radiant"), 
+    ("regal"), 
+    ("rich"), 
+    ("ripe"), 
+    ("romantic"), 
+    ("royal"), 
+    ("rustic"), 
+    ("rusty"), 
+    ("serene"), 
+    ("shimmering"), 
+    ("shiny"), 
+    ("silky"), 
+    ("sky"), 
+    ("sleek"), 
+    ("smart"), 
+    ("snow"), 
+    ("soft"), 
+    ("soily"), 
+    ("sombre"), 
+    ("soothing"), 
+    ("sophisticated"), 
+    ("splendid"),
+    ("stormy"), 
+    ("stylish"), 
+    ("subdued"), 
+    ("sublime"), 
+    ("subtle"), 
+    ("sunny"), 
+    ("tasteful"), 
+    ("terrific"), 
+    ("timeless"), 
+    ("tranquil"), 
+    ("trusty"), 
+    ("unusual"), 
+    ("velvety"), 
+    ("verdant"), 
+    ("vibrant"), 
+    ("vivid"), 
+    ("warm"), 
+    ("watery"), 
+    ("whimsical"), 
+    ("wild"), 
+    ("winter"), 
+    ("zany"),
 ]

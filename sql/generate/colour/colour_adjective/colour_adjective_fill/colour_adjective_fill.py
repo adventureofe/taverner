@@ -2,10 +2,10 @@ import sys
 import sqlite3
 import pandas as pd
 
-from sql.generate.colour.colour_adjective.colour_adjective_fill_list import colour_adjective_fill_list
+from sql.generate.colour.colour_adjective.colour_adjective_fill.colour_adjective_fill_list import colour_adjective_fill_list
 
-sql_table_drop = lambda cursor, table_name: cursor.execute(f"DROP TABLE IF EXISTS {table_name}")
-sql_table_print = lambda cursor, table_name: print(cursor.execute(f"SELECT * FROM {table_name}").fetchall())
+def sql_table_drop(cursor, table_name): cursor.execute(f"DROP TABLE IF EXISTS {table_name}")
+def sql_table_print(cursor, table_name): print(cursor.execute(f"SELECT * FROM {table_name}").fetchall())
 
 def colour_adjective_fill_create(connection, cursor):
     # overwrite existing table if it already exists

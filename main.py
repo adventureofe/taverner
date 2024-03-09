@@ -2,15 +2,13 @@ import sys
 import sqlite3
 import pandas as pd
 
-from sql.generate.colour.colour import colour_create
+from sql.generate.colour.colour_main.colour import colour_create
 from sql.generate.colour.colour_adjective.colour_adjective import colour_adjective_create
-from sql.generate.colour.colour_adjective.colour_adjective_fill import colour_adjective_fill_create
+from sql.generate.colour.colour_adjective.colour_adjective_fill.colour_adjective_fill import colour_adjective_fill_create
 
-def sql_table_drop(): lambda cursor, table_name: cursor.execute(f"DROP TABLE IF EXISTS {table_name}")
-def sql_table_print(): lambda cursor, table_name: print(cursor.execute(f"SELECT * FROM {table_name}").fetchall())
-
-def sql_change_print(): lambda connection : print(f"(total connection changes)=>{connection.total_changes}", end='\n')
-
+def sql_table_drop(cursor, table_name): cursor.execute(f"DROP TABLE IF EXISTS {table_name}")
+def sql_table_print(cursor, table_name): print(cursor.execute(f"SELECT * FROM {table_name}").fetchall())
+def sql_change_print(connection): print(f"(total connection changes)=>{connection.total_changes}", end='\n')
 
 def main() -> int:
     # make connection to sqlite3
@@ -28,14 +26,16 @@ def main() -> int:
     df_colour = pd.read_sql_query('SELECT * FROM colour', connection)
     print(df_colour)
 
+    
     colour_adjective_create(connection, cursor)
     df_colour_adjective = pd.read_sql_query('SELECT * FROM colour_adjective', connection)
     print(df_colour_adjective)
 
+    
     colour_adjective_fill_create(connection, cursor)
-    df_colour_adjective_fill = pd.read_sql_query('SELECT * FROM colour_adjective_fill', connection)
+    df_colour_adjective_fill = pd.read_sql_query('SELECT * FROM vw_colour_adjective_fill', connection)
     print(df_colour_adjective_fill)
-
+    
     sql_change_print(connection)
     cursor.close()
     connection.close()
