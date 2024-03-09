@@ -17,7 +17,9 @@ def item_diet_consume_create(connection, cursor):
     name TEXT NOT NULL CHECK(length(name) <= 64)
 )''')
 
-    cursor.executemany("INSERT INTO item_consumability(name, consumability) VALUES (?, ?)", list(item_diet_consume_list))
+    item_diet_consume_list_tuples = [(value,) for value in item_diet_consume_list]
+
+    cursor.executemany("INSERT INTO item_diet_consume(name) VALUES (?)", item_diet_consume_list_tuples)
 
     # make changes permanen
     connection.commit()

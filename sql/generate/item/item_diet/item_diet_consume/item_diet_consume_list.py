@@ -1,12 +1,18 @@
-item_diet_consume_ist = [
+item_diet_consume_list = [
     ('delectable'),
     ('delicious'),
     ('nutritious'),
     ('tasty'),
-    ('palatable'),
+    ('palatabe'),  
     ('acceptable'),
-    ('digestible'),
+    ('edible'),
+    ('monotonous'),
     ('tough'),
+    ('hard'),
+    ('solid'),
     ('offensive'),
-    ('inedible')
+    ('inedible'),
+    ('harmful'),
+    ('mind-altering'),
+    ('toxic'),
 ]
