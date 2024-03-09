@@ -4,8 +4,8 @@ import pandas as pd
 
 from sql.generate.item.item_list import item_list
 
-sql_table_drop = lambda cursor, table_name: cursor.execute(f"DROP TABLE IF EXISTS {table_name}")
-sql_table_print = lambda cursor, table_name: print(cursor.execute(f"SELECT * FROM {table_name}").fetchall())
+def sql_table_drop(cursor, table_name): cursor.execute(f"DROP TABLE IF EXISTS {table_name}")
+def sql_table_print(cursor, table_name): print(cursor.execute(f"SELECT * FROM {table_name}").fetchall())
 
 def item_create(connection, cursor):
     # overwrite existing table if it already exists
@@ -23,7 +23,7 @@ def item_create(connection, cursor):
     FOREIGN key(colour) REFERENCES colour(id)
 )''')
 
-    cursor.executemany("INSERT INTO colour(name, r, g, b) VALUES (?, ?, ?, ?)", list(colour_list))
+    cursor.executemany("INSERT INTO item(name, name, diet, colour) VALUES (?, ?, ?, ?)", list(colour_list))
 
     # make changes permanent
     connection.commit()

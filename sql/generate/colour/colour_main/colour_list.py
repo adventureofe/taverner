@@ -1,7 +1,3 @@
-from collections import namedtuple
-
-Color = namedtuple('Color', ['name', 'r', 'g', 'b'])
-
 colour_list =  [
     # name          r    g    b
     ('pink',       255, 192, 203),
@@ -24,10 +20,3 @@ colour_list =  [
     ('blue',       0,     0, 255),
     ('gold',       187, 165,  61)
 ]
-
-# Create a list of Color objects
-color_objects = [Color(*color_data) for color_data in colour_list]
-
-# Example usage
-for color in color_objects:
-    print(f"{color.name}: ({color.r}, {color.g}, {color.b})")
