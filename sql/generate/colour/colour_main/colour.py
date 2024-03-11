@@ -11,7 +11,7 @@ def colour_create(connection, cursor):
     # overwrite existing table if it already exists
     sql_table_drop(cursor, "colour")
 
-    # create colour table
+    # create table
     cursor.execute('''CREATE TABLE colour
 (
     id INTEGER PRIMARY KEY,
@@ -21,7 +21,23 @@ def colour_create(connection, cursor):
     b INTEGER NOT NULL CHECK(b >= 0 AND b <= 255)
 )''')
 
+    #insert values into table
     cursor.executemany("INSERT INTO colour(name, r, g, b) VALUES (?, ?, ?, ?)", list(colour_list))
+
+    #overwrite existing table if it already exists
+    cursor.execute('DROP VIEW IF EXISTS vw_colour')
+
+    #create view for table
+    cursor.execute('''
+    CREATE VIEW vw_colour AS
+    SELECT
+        c.id AS id,
+        c.name AS name,
+        c.r AS r,
+        c.g AS g,
+        c.b AS b
+    FROM colour AS c;
+''')
 
     # make changes permanent
     connection.commit()

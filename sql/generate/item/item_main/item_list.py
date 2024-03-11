@@ -10,7 +10,7 @@ c = {color[0]: index+1 for index, color in enumerate(colour_list)}
 i = {item_diet: index+1 for index, item_diet in enumerate(item_diet_list)}
 
 item_list = [
-    ("mead", i["alcohol"], c["yellow"], "a wine made from honey"),
+    ("mead", i["alcohol"], c["yellow"], "a delicious, wine made from honey"),
     ("beer", i["alcohol"], c["yellow"], "an alcohol of hops and malt"),
     ("whiskey", i["alcohol"], c["brown"], "distilled beer"),
     ("vodka", i["alcohol"], c["silver"], "distilled neutral grain"),
@@ -35,7 +35,7 @@ item_list = [
     ("agave", i["plant hard root"], c["green"], "a root of an agave plant"),
     ("potato", i["plant soft root"], c["brown"], "an earthy root vegetable"),
     ("granite", i["rock"], c["dark grey"], "a hard rock"),
-    ("mussel", i["shellfish"], c["grey"], "a tasty shellfish"),
+    ("mussel", i["shellfish"], c["pink"], "a tasty shellfish"),
     ("cabbage", i["vegetable"], c["green"], "a tasty vegetable"),
     ("carrot", i["vegetable"], c["orange"], "a tasty vegetable"),
     ("rat", i["vermin"], c["dark grey"], "a horrible rat"),
