@@ -3,8 +3,10 @@ import sqlite3
 import pandas as pd
 
 from sql.generate.colour.colour_main.colour import colour_create
-from sql.generate.colour.colour_adjective.colour_adjective import colour_adjective_create
-from sql.generate.colour.colour_adjective.colour_adjective_fill.colour_adjective_fill import colour_adjective_fill_create
+from sql.generate.language.adjective.colour_adjective.colour_adjective import colour_adjective_create
+from sql.generate.language.adjective.colour_adjective.colour_adjective_fill.colour_adjective_fill import colour_adjective_fill_create
+
+from sql.generate.item.item_main.item import item_create
 from sql.generate.item.item_diet.item_diet import item_diet_create
 from sql.generate.item.item_diet.item_diet_consume.item_diet_consume import item_diet_consume_create
 
@@ -27,7 +29,6 @@ def main() -> int:
     colour_create(connection, cursor)
     df_colour = pd.read_sql_query('SELECT * FROM colour', connection)
     print(df_colour)
-
     
     colour_adjective_create(connection, cursor)
     df_colour_adjective = pd.read_sql_query('SELECT * FROM colour_adjective', connection)
@@ -37,14 +38,19 @@ def main() -> int:
     colour_adjective_fill_create(connection, cursor)
     df_colour_adjective_fill = pd.read_sql_query('SELECT * FROM vw_colour_adjective_fill', connection)
     print(df_colour_adjective_fill)
- 
-    item_diet_create(connection, cursor)
-    df_item_diet = pd.read_sql_query('SELECT * FROM item_diet', connection)
-    print(df_item_diet) 
 
     item_diet_consume_create(connection, cursor)
     df_item_diet_consume = pd.read_sql_query('SELECT * FROM item_diet_consume', connection)
     print(df_item_diet_consume)
+
+    item_diet_create(connection, cursor)
+    df_item_diet = pd.read_sql_query('SELECT * FROM item_diet', connection)
+    print(df_item_diet) 
+
+    item_create(connection, cursor)
+    df_item = pd.read_sql_query('SELECT * FROM item', connection)
+    print(df_item)
+
     
     sql_change_print(connection)
     cursor.close()

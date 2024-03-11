@@ -142,4 +142,13 @@ colour_adjective_list = [
     ("wild"), 
     ("winter"), 
     ("zany"),
+    ("baffling"),
+    ("ballsy"),
+    ("baleful"),
+    ("befuddled"),
+    ("bemused"),
+    ("benevolent"),
+    ("brainy"),
+    ("brotherly"),
+    ("buxom") 
 ]

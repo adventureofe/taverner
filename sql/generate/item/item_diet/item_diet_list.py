@@ -7,7 +7,6 @@ item_diet_list = [
     ('meat large'),
     ('meat medium'), 
     ('meat small'),
-    ('plant grass'),
     ('plant hard root'),
     ('plant soft root'),
     ('rock'),

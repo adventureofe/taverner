@@ -2,7 +2,7 @@ import sys
 import sqlite3
 import pandas as pd
 
-from sql.generate.colour.colour_adjective.colour_adjective_list import colour_adjective_list
+from sql.generate.language.adjective.colour_adjective.colour_adjective_list import colour_adjective_list
 
 sql_table_drop = lambda cursor, table_name: cursor.execute(f"DROP TABLE IF EXISTS {table_name}")
 sql_table_print = lambda cursor, table_name: print(cursor.execute(f"SELECT * FROM {table_name}").fetchall())

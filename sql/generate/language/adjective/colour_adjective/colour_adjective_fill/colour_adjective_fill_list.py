@@ -2,7 +2,9 @@
 # (10) cyan (11) dark grey (12) maroon (13)
 
 from sql.generate.colour.colour_main.colour_list import colour_list
-from sql.generate.colour.colour_adjective.colour_adjective_list import colour_adjective_list
+from sql.generate.language.adjective.colour_adjective.colour_adjective_list import colour_adjective_list
+
+
 
 a = {adj: index + 1 for index, adj in enumerate(colour_adjective_list)}
 c = {color[0]: index+1 for index, color in enumerate(colour_list)}
