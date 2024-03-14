@@ -2,7 +2,7 @@ import sys
 import sqlite3
 import pandas as pd
 
-from sql.generate.item.item_main.item_list import item_list
+from sql.generate.item.item_list import item_list
 
 def sql_table_drop(cursor, table_name): cursor.execute(f"DROP TABLE IF EXISTS {table_name}")
 def sql_table_print(cursor, table_name): print(cursor.execute(f"SELECT * FROM {table_name}").fetchall())

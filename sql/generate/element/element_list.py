@@ -1,4 +1,4 @@
-from sql.generate.colour.colour_main.colour import colour_list
+from sql.generate.colour.colour_list import colour_list
 
 c = {color[0]: index+1 for index, color in enumerate(colour_list)}
 

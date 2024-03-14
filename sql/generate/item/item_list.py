@@ -2,7 +2,7 @@ import sys
 import sqlite3
 import pandas as pd
 
-from sql.generate.colour.colour_main.colour import colour_list
+from sql.generate.colour.colour_list import colour_list
 
 from sql.generate.item.item_diet.item_diet_list import item_diet_list
 

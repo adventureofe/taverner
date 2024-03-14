@@ -4,21 +4,44 @@ import pandas as pd
 
 from sql.generate.language.adjective.colour_adjective.colour_adjective_list import colour_adjective_list
 
-sql_table_drop = lambda cursor, table_name: cursor.execute(f"DROP TABLE IF EXISTS {table_name}")
-sql_table_print = lambda cursor, table_name: print(cursor.execute(f"SELECT * FROM {table_name}").fetchall())
+
+def sql_table_drop(cursor, table_name): cursor.execute(f"DROP TABLE IF EXISTS {table_name}")
+def sql_table_print(cursor, table_name): print(cursor.execute(f"SELECT * FROM {table_name}").fetchall())
 
 def colour_adjective_create(connection, cursor):
     # overwrite existing table if it already exists
     sql_table_drop(cursor, "colour_adjective")
 
     # create colour table
-    cursor.execute('''CREATE TABLE colour_adjective
+    cursor.execute('''
+CREATE TABLE colour_adjective
 (
     id INTEGER PRIMARY KEY,
-    name TEXT NOT NULL
+    adjective INTEGER NOT NULL,
+    colour INTEGER NOT NULL
+    
 )''')
 
-    cursor.executemany("INSERT INTO colour_adjective(name) VALUES(?)", [(name,) for name in colour_adjective_list])
+    
+
+    cursor.executemany("INSERT INTO colour_adjective(adjective, colour) VALUES(?, ? )", colour_adjective_list)
+
+    cursor.execute("DROP VIEW IF EXISTS vw_colour_adjective")
+
+    cursor.execute('''
+CREATE VIEW vw_colour_adjective AS
+SELECT
+    ca.id as id,
+    ca.colour as colour_id,
+    c.name as colour_name,
+    ca.adjective as adjective_id,
+    a.name as adjective_name
+FROM colour_adjective AS ca
+INNER JOIN colour AS c ON colour_id = c.id
+INNER JOIN adjective AS a ON adjective_id = ca.id;
+''')
 
     # make changes permanent
     connection.commit()
+
+

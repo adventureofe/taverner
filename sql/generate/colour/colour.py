@@ -3,7 +3,7 @@ import sqlite3
 import pandas as pd
 
 
-from sql.generate.colour.colour_main.colour_list import colour_list
+from sql.generate.colour.colour_list import colour_list
 
 def sql_table_drop(cursor, table_name): cursor.execute(f"DROP TABLE IF EXISTS {table_name}")
 
