@@ -1,8 +1,80 @@
 from sql.generate.element.element_list import element_list
+from sql.generate.element.element_effectiveness.element_effectiveness_type.element_effectiveness_type_list import element_effectiveness_type_list
+
+t = {element_effectiveness_type[0]: index for index, element_effectiveness_type in enumerate(element_effectiveness_type_list)}
 
 e = {element[0]: index+1 for index, element in enumerate(element_list)}
 
-element_effectivness_list = [
-    ("strong"),
-    ("weak")
-]
+element_effectiveness_list = [
+    (e["alien"], e["alien"], t["weak"]),
+    (e["alien"], e["air"], t["somewhat weak"]),
+    (e["alien"], e["chaos"], t["strong"]),
+    (e["alien"], e["earth"], t["neutral"]),
+    (e["alien"], e["electricity"], t["neutral"]),
+    (e["alien"], e["evil"], t["neutral"]),
+    (e["alien"], e["fire"], t["neutral"]),
+    (e["alien"], e["holiness"], t["neutral"]),
+    (e["alien"], e["ice"], t["neutral"]),
+    (e["alien"], e["metal"], t["neutral"]),
+    (e["alien"], e["mutation"], t["very weak"]),
+    (e["alien"], e["normal"], t["strong"]),
+    (e["alien"], e["plant"], t["weak"]),
+    (e["alien"], e["poison"], t["neutral"]),
+    (e["alien"], e["radiation"], t["somewhat strong"]),
+    (e["alien"], e["undead"], t["neutral"]),
+    (e["alien"], e["water"], t["neutral"]),
+    
+    (e["air"], e["alien"], t["weak"]),
+    (e["air"], e["air"], t["weak"]),
+    (e["air"], e["chaos"], t["neutral"]),
+    (e["air"], e["earth"], t["somewhat strong"]),
+    (e["air"], e["electricity"], t["somewhat weak"]),
+    (e["air"], e["evil"], t["neutral"]),
+    (e["air"], e["fire"], t["somewhat strong"]),
+    (e["air"], e["holiness"], t["neutral"]),
+    (e["air"], e["ice"], t["neutral"]),
+    (e["air"], e["metal"], t["weak"]),
+    (e["air"], e["mutation"], t["strong"]),
+    (e["air"], e["normal"], t["somewhat strong"]),
+    (e["air"], e["plant"], t["very strong"]),
+    (e["air"], e["poison"], t["neutral"]),
+    (e["air"], e["radiation"], t["strong"]),
+    (e["air"], e["undead"], t["neutral"]),
+    (e["air"], e["water"], t["neutral"]),
+
+    (e["chaos"], e["alien"], t["weak"]),
+    (e["chaos"], e["air"], t["neutral"]),
+    (e["chaos"], e["chaos"], t["very strong"]),
+    (e["chaos"], e["earth"], t["strong"]),
+    (e["chaos"], e["electricity"], t["somewhat strong"]),
+    (e["chaos"], e["evil"], t["weak"]),
+    (e["chaos"], e["fire"], t["neutral"]),
+    (e["chaos"], e["holiness"], t["strong"]),
+    (e["chaos"], e["ice"], t["somewhat weak"]),
+    (e["chaos"], e["metal"], t["weak"]),
+    (e["chaos"], e["mutation"], t["strong"]),
+    (e["chaos"], e["normal"], t["strong"]),
+    (e["chaos"], e["plant"], t["weak"]),
+    (e["chaos"], e["poison"], t["neutral"]),
+    (e["chaos"], e["radiation"], t["strong"]),
+    (e["chaos"], e["undead"], t["neutral"]),
+    (e["chaos"], e["water"], t["weak"]),
+
+    (e["earth"], e["alien"], t["neutral"]),
+    (e["earth"], e["air"], t["very weak"]),
+    (e["earth"], e["chaos"], t["neutral"]),
+    (e["earth"], e["earth"], t["weak"]),
+    (e["earth"], e["electricity"], t["very strong"]),
+    (e["earth"], e["evil"], t["neutral"]),
+    (e["earth"], e["fire"], t["strong"]),
+    (e["earth"], e["holiness"], t["neutral"]),
+    (e["earth"], e["ice"], t["somewhat strong"]),
+    (e["earth"], e["metal"], t["strong"]),
+    (e["earth"], e["mutation"], t["neutral"]),
+    (e["earth"], e["normal"], t["neutral"]),
+    (e["earth"], e["plant"], t["weak"]),
+    (e["earth"], e["poison"], t["strong"]),
+    (e["earth"], e["radiation"], t["somewhat weak"]),
+    (e["earth"], e["undead"], t["neutral"]),
+    (e["earth"], e["water"], t["weak"])
+ ]   
