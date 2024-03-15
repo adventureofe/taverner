@@ -1,7 +1,7 @@
 # colour list (1) pink (2) magenta (3) silver (4) orange (5) brown (6) yellow (7) black (8) red (9) white
 # (10) cyan (11) dark grey (12) maroon (13)
 
-from sql.generate.colour.colour_main.colour_list import colour_list
+from sql.generate.colour.colour_list import colour_list
 from sql.generate.language.adjective.adjective_list import adjective_list
 
 
@@ -10,7 +10,7 @@ a = {adj: index + 1 for index, adj in enumerate(adjective_list)}
 c = {color[0]: index+1 for index, color in enumerate(colour_list)}
 
 colour_adjective_list = [
-    *( (a["adhorrent"], c[colour]) for colour in ["pink", "magenta", "orange", "brown", "yellow", "black", "red", "white", "cyan", "green", "purple", "lime", "blue"]),
+    *( (a["abhorrent"], c[colour]) for colour in ["pink", "magenta", "orange", "brown", "yellow", "black", "red", "white", "cyan", "green", "purple", "lime", "blue"]),
 
     *( (a["abrasive"], c[colour]) for colour in ["pink", "magenta", "black", "red", "white", "cyan", "grey", "green", "lime", "blue"]),
 
@@ -48,14 +48,21 @@ colour_adjective_list = [
 
     *( (a["apt"], c[colour]) for colour in ["pink", "magenta", "silver", "orange", "brown", "yellow", "black", "red", "white", "cyan", "dark grey", "maroon", "grey", "green", "purple", "lime", "dark green", "blue", "gold"]),
 
+    *( (a["arrogant"], c[colour]) for colour in ["pink", "magenta", "orange", "red", "cyan", "purple", "lime", "gold"]),
 
     *( (a["astonishing"], c[colour]) for colour in ["pink", "magenta", "silver", "orange", "yellow", "black", "red", "white", "cyan", "purple", "lime", "blue", "gold"]),
+
+    *( (a["attractive"], c[colour]) for colour in ["pink", "magenta", "silver", "orange", "brown", "yellow", "black", "red", "white", "cyan", "dark grey", "maroon", "grey", "green", "purple", "lime", "dark green", "blue", "gold"]),
+
+    *( (a["awesome"], c[colour]) for colour in ["pink", "magenta", "silver", "orange", "brown", "yellow", "black", "red", "white", "cyan", "dark grey", "maroon", "grey", "green", "purple", "lime", "dark green", "blue", "gold"]),
 
     *( (a["beautiful"], c[colour]) for colour in ["pink", "silver", "brown", "black", "red", "white", "green", "lime", "dark green", "blue", "gold"]),
 
     *( (a["bewildering"], c[colour]) for colour in ["pink", "magenta", "orange", "brown", "yellow", "black", "red", "cyan", "maroon", "green", "purple", "lime", "dark green", "blue", "gold"]),
 
     *( (a["bitter"], c[colour]) for colour in ["brown", "yellow", "white", "dark grey", "grey", "lime"]),
+
+    *( (a["blessed"], c[colour]) for colour in ["white"]),
 
     *( (a["blush"], c[colour]) for colour in ["pink", "red"]),
 
@@ -69,9 +76,11 @@ colour_adjective_list = [
 
     *( (a["brilliant"], c[colour]) for colour in ["pink", "silver", "orange", "brown", "yellow", "black", "red", "white", "green", "purple", "blue", "gold"]),
 
-    (a["calm"], c["blue"]),
+    *( (a["calm"], c[colour]) for colour in ["blue"]),
 
-    (a["calming"], c["blue"]),
+    *( (a["calming"], c[colour]) for colour in ["blue"]),
+
+    *( (a["charming"], c[colour]) for colour in ["pink", "magenta", "silver", "orange", "brown", "yellow", "black", "red", "white", "cyan", "dark grey", "maroon", "grey", "green", "purple", "lime", "dark green", "blue", "gold"]),
 
     *( (a["cheerful"], c[colour]) for colour in ["pink", "magenta", "orange", "yellow", "red", "white", "maroon", "green", "purple", "blue"]),
 
@@ -89,9 +98,13 @@ colour_adjective_list = [
 
     *( (a["cool"], c[colour]) for colour in ["silver", "yellow", "black", "white", "cyan", "dark grey", "maroon", "grey", "green", "lime", "dark green", "blue", "gold"]),
 
+    *( (a["cooshy"], c[colour]) for colour in ["orange", "brown", "black", "dark grey", "maroon", "grey", "green", "purple", "dark green"]),
+
     (a["cosmic"], c["black"]),
     
     (a["cosy"], c["brown"]),
+
+    *( (a["courageous"], c[colour]) for colour in ["pink", "magenta", "orange", "red", "green", "purple"]),
 
     *( (a["crisp"], c[colour]) for colour in ["silver", "white", "lime", "green", "blue", "gold"]),
     
@@ -112,6 +125,8 @@ colour_adjective_list = [
     *( (a["delicate"], c[colour]) for colour in ["pink", "silver", "orange", "yellow", "white", "cyan", "dark grey", "maroon", "grey", "green", "dark green"]),
 
     *( (a["distinctive"], c[colour]) for colour in ["pink", "magenta", "silver", "orange", "brown", "yellow", "black", "red", "white", "cyan", "dark grey", "maroon", "grey", "green", "purple", "lime", "dark green", "blue", "gold"]),
+
+    *( (a["disturbing"], c[colour]) for colour in ["orange", "brown", "yellow", "black", "red", "grey", "green", "purple", "dark green"]),
 
     *( (a["dramatic"], c[colour]) for colour in ["pink", "magenta", "silver", "orange", "brown", "yellow", "black", "red", "white", "cyan", "dark grey", "maroon", "grey", "green", "purple", "lime", "dark green", "blue", "gold"]),
 

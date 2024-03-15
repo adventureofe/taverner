@@ -32,13 +32,13 @@ CREATE TABLE colour_adjective
 CREATE VIEW vw_colour_adjective AS
 SELECT
     ca.id as id,
-    ca.colour as colour_id,
-    c.name as colour_name,
-    ca.adjective as adjective_id,
-    a.name as adjective_name
+    ca.colour as cid,
+    c.name as colour,
+    ca.adjective as aid,
+    a.name as adjective
 FROM colour_adjective AS ca
-INNER JOIN colour AS c ON colour_id = c.id
-INNER JOIN adjective AS a ON adjective_id = ca.id;
+INNER JOIN colour AS c ON cid = c.id
+INNER JOIN adjective AS a ON aid = ca.id;
 ''')
 
     # make changes permanent

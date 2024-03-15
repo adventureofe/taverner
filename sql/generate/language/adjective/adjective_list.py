@@ -18,7 +18,7 @@ adjective_list = [
     ("apocalyptic"),
     ("appauling"),
     ("appealing"),
-    ("apt"), #up to here is filled into colour adjective
+    ("apt"),
     ("arrogant"),
     ("astonishing"), 
     ("attractive"),
@@ -58,7 +58,7 @@ adjective_list = [
     ("deep"), 
     ("delicate"), 
     ("distinctive"), 
-    ("disturbing"),
+    ("disturbing"), #up to here is filled into colour adjective
     ("drab"),
     ("dramatic"), 
     ("dreamy"), 

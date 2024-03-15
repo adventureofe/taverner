@@ -23,7 +23,7 @@ def element_create(connection, cursor):
     SELECT
        e.id AS id,
        e.name AS name,
-       c.id AS colour_id,
+       c.id AS cid,
        c.name AS colour
     FROM element as e
     INNER JOIN colour AS c ON e.colour = c.id
