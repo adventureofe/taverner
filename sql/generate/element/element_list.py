@@ -20,5 +20,6 @@ element_list = [
     ("poison", c["purple"]),
     ("radiation", c["lime"]),
     ("undead", c["dark green"]),
-    ("water", c["blue"])
+    ("water", c["blue"]),
+    ("fungus", c["gold"]),
 ]

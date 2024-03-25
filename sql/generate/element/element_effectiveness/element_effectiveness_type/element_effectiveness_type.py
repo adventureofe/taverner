@@ -15,10 +15,11 @@ def element_effectiveness_type_create(connection, cursor):
     (
     id INTEGER PRIMARY KEY,
     name TEXT NOT NULL CHECK(length(name) <= 64),
-    multiplier FLOAT NOT NULL
+    level INTEGER NOT NULL,
+    multiplier INTEGER NOT NULL
     )''')
 
-    cursor.executemany("INSERT INTO element_effectiveness_type(name, multiplier) VALUES (?, ?)", element_effectiveness_type_list)
+    cursor.executemany("INSERT INTO element_effectiveness_type(name, level, multiplier) VALUES (?, ?, ?)", element_effectiveness_type_list)
 
 
 
@@ -30,6 +31,7 @@ def element_effectiveness_type_create(connection, cursor):
     CREATE VIEW vw_element_effectiveness_type AS
     SELECT
     e.id AS id,
+    e.level AS level,
     e.name AS name,
     e.multiplier as mult
     FROM element_effectiveness_type AS e;

@@ -8,11 +8,13 @@ def sql_table_drop(cursor, table_name): cursor.execute(f"DROP TABLE IF EXISTS {t
 def sql_table_print(cursor, table_name): print(cursor.execute(f"SELECT * FROM {table_name}").fetchall())
 
 def item_create(connection, cursor):
+    table_name = "item"
+
     # overwrite existing table if it already exists
-    sql_table_drop(cursor, "item")
+    sql_table_drop(cursor, table_name)
 
     # create table
-    cursor.execute('''CREATE TABLE item
+    cursor.execute(f'''CREATE TABLE {table_name} 
 (
     id INTEGER PRIMARY KEY,
     name TEXT NOT NULL CHECK(length(name) <= 64),
@@ -26,25 +28,25 @@ def item_create(connection, cursor):
 )''')
 
     #insert values into table
-    cursor.executemany("INSERT INTO item(name, item_diet, colour, element, description) VALUES (?, ?, ?, ?, ?)", list(item_list))
+    cursor.executemany(f"INSERT INTO {table_name}(name, item_diet, colour, element, description) VALUES (?, ?, ?, ?, ?)", list(item_list))
 
-    cursor.execute("DROP VIEW IF EXISTS vw_item")
+    cursor.execute(f"DROP VIEW IF EXISTS vw_{table_name}")
 
-    cursor.execute('''CREATE VIEW vw_item AS
+    cursor.execute(f'''CREATE VIEW vw_{table_name} AS
     SELECT
-        i.id AS id,
-        i.name AS name,
+        tn.id AS id,
+        tn.name AS name,
         id.id AS did,
         id.name as diet,
         c.id AS cid,
         c.name AS colour,
         e.id AS eid,
         e.name as element,
-        i.description AS description
-    FROM item AS i
-    INNER JOIN colour AS c ON i.colour = c.id
-    INNER JOIN element AS e ON i.element = e.id
-    INNER JOIN item_diet AS id on i.item_diet = id.id
+        tn.description AS description
+    FROM {table_name} AS tn
+    INNER JOIN colour AS c ON tn.colour = c.id
+    INNER JOIN element AS e ON tn.element = e.id
+    INNER JOIN item_diet AS id on tn.item_diet = id.id
     ''')
 
     # make changes permanent

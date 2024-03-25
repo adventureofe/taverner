@@ -13,6 +13,7 @@ def element_effectiveness_create(connection, cursor):
     # create table
     cursor.execute('''CREATE TABLE element_effectiveness
     (
+    id INTEGER PRIMARY KEY,
     attacker INTEGER NOT NULL,
     defender INTEGER NOT NULL,
     effectiveness INTEGER NOT NULL,
@@ -28,13 +29,20 @@ def element_effectiveness_create(connection, cursor):
 
     #create view for table
     cursor.execute('''
-    CREATE VIEW vw_element_effectiveness AS
-    SELECT
-    c.id AS id,
-    c.attacker AS atk,
-    c.defender AS def
-    FROM element_effectiveness AS c;
+CREATE VIEW vw_element_effectiveness AS
+SELECT
+    ef.attacker AS atk,
+    e1.name AS attacker,
+    ef.defender AS def,
+    e2.name AS defender,
+    et.level AS eff,
+    et.name AS effectiveness
+FROM element_effectiveness AS ef
+INNER JOIN element AS e1 ON ef.attacker = e1.id
+INNER JOIN element AS e2 ON ef.defender = e2.id
+INNER JOIN element_effectiveness_type AS et ON et.id = ef.effectiveness;
     ''')
+
 
     # make changes permanent
     connection.commit()

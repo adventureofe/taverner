@@ -21,5 +21,16 @@ def item_diet_consume_create(connection, cursor):
 
     cursor.executemany("INSERT INTO item_diet_consume(name) VALUES (?)", item_diet_consume_list_tuples)
 
+    cursor.execute("DROP VIEW IF EXISTS vw_item_diet_consume")
+
+    cursor.execute('''
+    CREATE VIEW vw_item_diet_consume AS
+    SELECT
+        idc.id AS id,
+        idc.name as name
+    FROM item_diet_consume AS idc
+''')
+
+
     # make changes permanen
     connection.commit()

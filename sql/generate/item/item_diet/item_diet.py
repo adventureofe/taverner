@@ -23,5 +23,15 @@ def item_diet_create(connection, cursor):
 
     cursor.executemany("INSERT INTO item_diet(name) VALUES (?)", item_diet_list_tuples)
 
+    cursor.execute("DROP VIEW IF EXISTS vw_item_diet")
+
+    cursor.execute('''
+    CREATE VIEW vw_item_diet AS
+    SELECT
+        id.id AS id,
+        id.name as name
+    FROM item_diet AS id
+''')
+
     # make changes permanent
     connection.commit()
