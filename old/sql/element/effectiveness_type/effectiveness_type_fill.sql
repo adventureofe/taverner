@@ -1,5 +1,6 @@
-INSERT INTO effectiveness_type(name)
+NSERT INTO effectiveness_type(name)
+
 VALUES
     ('weak'),
-    ('neutral'),
+   ('neutral'),
     ('strong');

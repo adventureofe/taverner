@@ -1,6 +1,7 @@
 import sys
 import sqlite3
 import pandas as pd
+import matplotlib.pyplot as plt
 
 from sql.generate.colour.colour import colour_create
 
@@ -24,7 +25,6 @@ from sql.generate.element.element_effectiveness.element_effectiveness_type.eleme
 from sql.generate.element.element import element_create
 
 from sql.generate.element.element_type.element_type import element_type_create
-
 
 
 def sql_table_drop(cursor, table_name): cursor.execute(f"DRO TABLE IF EXISTS {table_name}")
@@ -53,7 +53,6 @@ def main() -> int:
     df_colour = panda(connection, "colour")
     print(df_colour, end="\n\n")
 
-    '''
     adjective_create(connection, cursor)
     df_adjective = panda(connection, "adjective")
     # print(df_adjective)
@@ -63,11 +62,11 @@ def main() -> int:
     # print(df_colour_adjective)
 
     item_diet_consume_create(connection, cursor)
-    df_item_diet_consume = pd.read_sql_query('SELECT * FROM item_diet_consume', connection)
+    df_item_diet_consume = panda(connection, "item_diet_consume")
     # print(df_item_diet_consume)
 
     item_diet_create(connection, cursor)
-    df_item_diet = pd.read_sql_query('SELECT * FROM item_diet', connection)
+    df_item_diet = panda(connection, "item_diet")
     # print(df_item_diet)
 
     element_type_create(connection, cursor)
@@ -81,14 +80,13 @@ def main() -> int:
     item_create(connection, cursor)
     df_item = panda(connection, "item")
     # print(df_item)
-    '''
 
     element_effectiveness_type_create(connection, cursor)
     df_element_effectiveness_type = panda(connection, "element_effectiveness_type")
-    print(df_element_effectiveness_type)
+    # print(df_element_effectiveness_type)
 
     element_effectiveness_create(connection, cursor)
-    df_element_effectiveness = pd.read_sql_query('SELECT * FROM element_effectiveness', connection)
+    df_element_effectiveness = panda(connection, "element_effectiveness")
     print(df_element_effectiveness)
 
     sql_change_print(connection)
