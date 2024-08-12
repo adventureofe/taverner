@@ -51,3 +51,5 @@ def item_create(connection, cursor):
 
     # make changes permanent
     connection.commit()
+
+

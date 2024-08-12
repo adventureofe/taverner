@@ -20,10 +20,13 @@ def move_create(connection, cursor):
     id INTEGER PRIMARY KEY,
     name TEXT NOT NULL,
     power INTEGER NOT NULL,
+    element INTEGER NOT NULL,
+    description TEXT NOT NULL CHECK(length(description) <= 128),
+    FOREIGN KEY(element) REFERENCES element(id)
 )''')
 
     #insert values into table
-    cursor.executemany(f"INSERT INTO {table_name}(name, power) VALUES (?, ?)", list(colour_list))
+    cursor.executemany(f"INSERT INTO {table_name}(name, power, element, description) VALUES (?, ?)", list(item_list))
 
     #overwrite existing table if it already exists
     cursor.execute(f'DROP VIEW IF EXISTS vw_{table_name}')
@@ -34,8 +37,13 @@ def move_create(connection, cursor):
     SELECT
         tn.id AS id,
         tn.name AS name,
-        tn.power AS power
-    FROM {table_name} AS tn;
+        tn.power AS power,
+        e.id AS eid,
+        e.name as element,
+        tn.description AS description
+        
+    FROM {table_name} AS tn
+    INNER JOIN element AS e on tn.element = e.id
 ''')
 
     # make changes permanent
