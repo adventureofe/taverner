@@ -27,7 +27,7 @@ from sql.generate.element.element import element_create
 from sql.generate.element.element_type.element_type import element_type_create
 
 
-def sql_table_drop(cursor, table_name): cursor.execute(f"DRO TABLE IF EXISTS {table_name}")
+def sql_table_drop(cursor, table_name): cursor.execute(f"DROP TABLE IF EXISTS {table_name}")
 def sql_table_print(cursor, table_name): print(cursor.execute(f"SELECT * FROM {table_name}").fetchall())
 def sql_change_print(connection): print(f"(total connection changes)=>{connection.total_changes}", end='\n')
 
@@ -55,11 +55,11 @@ def main() -> int:
 
     adjective_create(connection, cursor)
     df_adjective = panda(connection, "adjective")
-    # print(df_adjective)
+    print(df_adjective)
 
     colour_adjective_create(connection, cursor)
     df_colour_adjective = panda(connection, "colour_adjective")
-    # print(df_colour_adjective)
+    print(df_colour_adjective)
 
     item_diet_consume_create(connection, cursor)
     df_item_diet_consume = panda(connection, "item_diet_consume")
@@ -92,6 +92,7 @@ def main() -> int:
     sql_change_print(connection)
     cursor.close()
     connection.close()
+ 
     return 0
 
 if __name__ == "__main__":
