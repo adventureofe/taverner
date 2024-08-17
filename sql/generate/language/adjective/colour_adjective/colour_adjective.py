@@ -9,12 +9,15 @@ def sql_table_drop(cursor, table_name): cursor.execute(f"DROP TABLE IF EXISTS {t
 def sql_table_print(cursor, table_name): print(cursor.execute(f"SELECT * FROM {table_name}").fetchall())
 
 def colour_adjective_create(connection, cursor):
+    table_name = "colour_adjective"
+    list_name = colour_adjective_list
+    
     # overwrite existing table if it already exists
-    sql_table_drop(cursor, "colour_adjective")
+    sql_table_drop(cursor, table_name)
 
     # create colour table
-    cursor.execute('''
-CREATE TABLE colour_adjective
+    cursor.execute(f'''
+CREATE TABLE {table_name}
 (
     id INTEGER PRIMARY KEY,
     adjective INTEGER NOT NULL,
@@ -24,21 +27,21 @@ CREATE TABLE colour_adjective
 
     
 
-    cursor.executemany("INSERT INTO colour_adjective(adjective, colour) VALUES(?, ? )", colour_adjective_list)
+    cursor.executemany(f"INSERT INTO {table_name}(adjective, colour) VALUES(?, ? )", list_name)
 
-    cursor.execute("DROP VIEW IF EXISTS vw_colour_adjective")
+    cursor.execute(f"DROP VIEW IF EXISTS vw_{table_name}")
 
-    cursor.execute('''
-CREATE VIEW vw_colour_adjective AS
+    cursor.execute(f'''
+CREATE VIEW vw_{table_name} AS
 SELECT
-    ca.id as id,
-    ca.colour as cid,
+    tn.id as id,
+    tn.colour as cid,
     c.name as colour,
-    ca.adjective as aid,
+    tn.adjective as aid,
     a.name as adjective
-FROM colour_adjective AS ca
+FROM {table_name} AS tn
 INNER JOIN colour AS c ON cid = c.id
-INNER JOIN adjective AS a ON aid = ca.id;
+INNER JOIN adjective AS a ON aid = a.id;
 ''')
 
     # make changes permanent

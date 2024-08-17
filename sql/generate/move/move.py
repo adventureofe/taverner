@@ -22,12 +22,17 @@ def move_create(connection, cursor):
     name TEXT NOT NULL CHECK(length(name) <= 128),
     power INTEGER NOT NULL,
     element INTEGER NOT NULL,
+    type INTEGER NOT NULL,
+    category INTEGER NOT NULL,
+    priority INTEGER NOT NULL,
     description TEXT NOT NULL CHECK(length(description) <= 128),
-    FOREIGN KEY(element) REFERENCES element(id)
+    FOREIGN KEY(element) REFERENCES element(id),
+    FOREIGN KEY(type) REFERENCES move_type(id),
+    FOREIGN KEY(category) REFERENCES move_category(id)
 )''')
 
     #insert values into table
-    cursor.executemany(f"INSERT INTO {table_name}(name, power, element, description) VALUES (?, ?, ?, ?)", list(list_name))
+    cursor.executemany(f"INSERT INTO {table_name}(name, power, element, type, category, priority, description) VALUES (?, ?, ?, ?, ?, ?, ?)", list(list_name))
 
     #overwrite existing table if it already exists
     cursor.execute(f'DROP VIEW IF EXISTS vw_{table_name}')
@@ -41,10 +46,19 @@ def move_create(connection, cursor):
         tn.power AS power,
         e.id AS eid,
         e.name as element,
+        mt.id AS mtid,
+        mt.name as move_type,
+        mc.id AS mcid,
+        mc.name AS move_category,
+        tn.priority AS priority,
         tn.description AS description
         
     FROM {table_name} AS tn
     INNER JOIN element AS e on tn.element = e.id
+    INNER JOIN move_type AS mt on tn.type = mt.id
+    INNER JOIN move_category AS mc on tn.category = mc.id
+
+
 ''')
 
     # make changes permanent

@@ -29,7 +29,7 @@ def species_create(connection, cursor):
        c.id AS cid,
        c.name AS colour
     FROM {table_name} AS tn
-    INNER JOIN colour AS c ON e.colour = c.id
+    INNER JOIN colour AS c ON tn.colour = c.id
 ''')
 
     # make changes permanent

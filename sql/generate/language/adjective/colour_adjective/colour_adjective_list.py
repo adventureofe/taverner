@@ -4,12 +4,99 @@
 from sql.generate.colour.colour_list import colour_list
 from sql.generate.language.adjective.adjective_list import adjective_list
 
+print(adjective_list)
 
-
-a = {adj: index + 1 for index, adj in enumerate(adjective_list)}
 c = {color[0]: index+1 for index, color in enumerate(colour_list)}
+a = {adjective[0]: index+1 for index, adjective in enumerate(adjective_list)}
+
+
+print(adjective_list)
 
 colour_adjective_list = [
+    *( (a["scruffy"], c[colour]) for colour in ["orange", "brown", "yellow", "black", "red", "white",  "dark grey",  "grey"]),
+
+    *( (a["shapely"], c[colour]) for colour in ["pink", "magenta", "silver", "orange", "brown", "yellow", "black", "red", "white", "cyan", "dark grey", "maroon", "grey", "green", "purple", "lime", "dark green", "blue", "gold"]),
+
+    *( (a["shy"], c[colour]) for colour in ["pink", "magenta", "silver", "orange", "brown", "yellow", "black", "red", "white", "cyan", "dark grey", "maroon", "grey", "green", "purple", "lime", "dark green", "blue", "gold"]),
+
+    *( (a["silly"], c[colour]) for colour in ["pink", "magenta", "silver", "orange", "brown", "yellow", "red", "cyan", "maroon", "green", "purple", "lime", "blue", "gold"]),
+
+    *( (a["stocky"], c[colour]) for colour in ["pink", "magenta", "silver", "orange", "brown", "yellow", "black", "red", "white", "cyan", "dark grey", "maroon", "grey", "green", "purple", "lime", "dark green", "blue", "gold"]),
+
+    *( (a["unimportant"], c[colour]) for colour in ["pink", "magenta", "silver", "orange", "brown", "yellow", "black", "red", "white", "cyan", "dark grey", "maroon", "grey", "green", "purple", "lime", "dark green", "blue", "gold"]),
+    
+    *( (a["unkempt"], c[colour]) for colour in ["pink", "magenta", "silver", "orange", "brown", "yellow", "black", "red", "white", "cyan", "dark grey", "maroon", "grey", "green", "purple", "lime", "dark green", "blue", "gold"]),
+
+    *( (a["unslightly"], c[colour]) for colour in ["pink", "magenta", "silver", "orange", "brown", "yellow", "black", "red", "white", "cyan", "dark grey", "maroon", "grey", "green", "purple", "lime", "dark green", "blue", "gold"]),
+
+    *( (a["uptight"], c[colour]) for colour in ["pink", "magenta", "silver", "orange", "brown", "yellow", "black", "red", "white", "cyan", "dark grey", "maroon", "grey", "green", "purple", "lime", "dark green", "blue", "gold"]),
+
+    *( (a["vast"], c[colour]) for colour in ["pink", "magenta", "silver", "orange", "brown", "yellow", "black", "red", "white", "cyan", "dark grey", "maroon", "grey", "green", "purple", "lime", "dark green", "blue", "gold"]),
+
+    *( (a["wonderful"], c[colour]) for colour in ["pink", "magenta", "silver", "orange", "brown", "yellow", "black", "red", "white", "cyan", "dark grey", "maroon", "grey", "green", "purple", "lime", "dark green", "blue", "gold"]),
+
+ 
+    *( (a["zealous"], c[colour]) for colour in ["pink", "magenta", "silver", "orange", "brown", "yellow", "black", "red", "white", "cyan", "dark grey", "maroon", "grey", "green", "purple", "lime", "dark green", "blue", "gold"]),
+
+    *( (a["famous"], c[colour]) for colour in ["pink", "magenta", "silver", "orange", "brown", "yellow", "black", "red", "white", "cyan", "dark grey", "maroon", "grey", "green", "purple", "lime", "dark green", "blue", "gold"]),
+
+    *( (a["fat"], c[colour]) for colour in ["pink", "magenta", "silver", "orange", "brown", "yellow", "black", "red", "white", "cyan", "dark grey", "maroon", "grey", "green", "purple", "lime", "dark green", "blue", "gold"]),
+
+    *( (a["gentle"], c[colour]) for colour in ["pink", "magenta", "silver", "orange", "brown", "yellow", "black", "red", "white", "cyan", "dark grey", "maroon", "grey", "green", "purple", "lime", "dark green", "blue", "gold"]),
+
+    *( (a["glamorous"], c[colour]) for colour in ["pink", "magenta", "silver", "orange", "yellow", "black", "red", "white", "cyan", "maroon", "grey", "green", "purple", "lime", "dark green", "blue", "gold"]),
+
+    *( (a["good"], c[colour]) for colour in ["pink", "magenta", "silver", "orange", "brown", "yellow", "black", "red", "white", "cyan", "dark grey", "maroon", "grey", "green", "purple", "lime", "dark green", "blue", "gold"]),
+
+    *( (a["happy"], c[colour]) for colour in ["pink", "magenta", "silver", "orange", "brown", "yellow", "black", "red", "white", "cyan", "dark grey", "maroon", "grey", "green", "purple", "lime", "dark green", "blue", "gold"]),
+
+    *( (a["important"], c[colour]) for colour in ["pink", "magenta", "silver", "orange", "brown", "yellow", "black", "red", "white", "cyan", "dark grey", "maroon", "grey", "green", "purple", "lime", "dark green", "blue", "gold"]),
+
+    *( (a["interesting"], c[colour]) for colour in ["pink", "magenta", "silver", "orange", "brown", "yellow", "black", "red", "white", "cyan", "dark grey", "maroon", "grey", "green", "purple", "lime", "dark green", "blue", "gold"]),
+
+    *( (a["uninteresting"], c[colour]) for colour in ["pink", "magenta", "silver", "orange", "brown", "yellow", "black", "red", "white", "cyan", "dark grey", "maroon", "grey", "green", "purple", "lime", "dark green", "blue", "gold"]),
+
+
+    *( (a["jolly"], c[colour]) for colour in ["pink", "magenta", "silver", "orange", "brown", "yellow", "black", "red", "white", "cyan", "dark grey", "maroon", "grey", "green", "purple", "lime", "dark green", "blue", "gold"]),
+
+    *( (a["journied"], c[colour]) for colour in ["silver", "brown", "yellow", "black", "white", "dark grey", "maroon", "grey", "dark green"]),
+
+    *( (a["joyful"], c[colour]) for colour in ["pink", "magenta", "silver", "orange", "brown", "yellow", "black", "red", "white", "cyan", "dark grey", "maroon", "grey", "green", "purple", "lime", "dark green", "blue", "gold"]),
+
+    *( (a["moral"], c[colour]) for colour in ["silver", "red", "white", "maroon", "green", "blue" ]),
+
+    *( (a["mushy"], c[colour]) for colour in ["pink", "magenta", "silver", "orange", "brown", "yellow", "black", "red", "white", "cyan", "dark grey", "maroon", "grey", "green", "purple", "lime", "dark green", "blue", "gold"]),
+
+    *( (a["old"], c[colour]) for colour in ["pink", "magenta", "silver", "orange", "brown", "yellow", "black", "red", "white", "cyan", "dark grey", "maroon", "grey", "green", "purple", "lime", "dark green", "blue", "gold"]),
+
+    *( (a["phat"], c[colour]) for colour in ["pink", "magenta", "silver", "orange", "brown", "yellow", "black", "red", "white", "cyan", "dark grey", "maroon", "grey", "green", "purple", "lime", "dark green", "blue", "gold"]),
+
+    *( (a["pitiful"], c[colour]) for colour in ["pink", "magenta", "silver", "orange", "brown", "yellow", "black", "red", "white", "cyan", "dark grey", "maroon", "grey", "green", "purple", "lime", "dark green", "blue", "gold"]),
+
+    *( (a["plump"], c[colour]) for colour in ["pink", "magenta", "silver", "orange", "brown", "yellow", "black", "red", "white", "cyan", "dark grey", "maroon", "grey", "green", "purple", "lime", "dark green", "blue", "gold"]),
+
+    *( (a["polite"], c[colour]) for colour in ["pink", "magenta", "silver", "orange", "brown", "yellow", "black", "red", "white", "cyan", "dark grey", "maroon", "grey", "green", "purple", "lime", "dark green", "blue", "gold"]),
+
+    *( (a["proud"], c[colour]) for colour in ["pink", "magenta", "silver", "orange", "brown", "yellow", "black", "red", "white", "cyan", "dark grey", "maroon", "grey", "green", "purple", "lime", "dark green", "blue", "gold"]),
+
+    *( (a["quiet"], c[colour]) for colour in ["pink", "magenta", "silver", "orange", "brown", "yellow", "black", "red", "white", "cyan", "dark grey", "maroon", "grey", "green", "purple", "lime", "dark green", "blue", "gold"]),
+
+    *( (a["confusing"], c[colour]) for colour in ["pink", "magenta", "silver", "orange", "yellow", "cyan", "maroon", "purple", "lime"]),
+
+    *( (a["drab"], c[colour]) for colour in ["silver", "brown", "yellow", "dark grey", "maroon", "grey", "green", "purple", "dark green", "blue"]),
+
+    *( (a["easy"], c[colour]) for colour in ["pink", "magenta", "silver", "orange", "brown", "yellow", "black", "red", "white", "cyan", "dark grey", "maroon", "grey", "green", "purple", "lime", "dark green", "blue", "gold"]),
+
+    *( (a["elder"], c[colour]) for colour in ["silver", "orange", "brown", "yellow", "black", "red", "white", "dark grey", "maroon", "grey", "green", "purple", "dark green", "blue", "gold"]),
+
+    *( (a["evil"], c[colour]) for colour in ["pink", "magenta", "silver", "orange", "brown", "yellow", "black", "red", "white", "cyan", "dark grey", "maroon", "grey", "green", "purple", "lime", "dark green", "blue", "gold"]),
+
+    *( (a["exciting"], c[colour]) for colour in ["pink", "orange", "red", "cyan", "maroon", "purple", "lime", "gold"]),
+
+    *( (a["expensive"], c[colour]) for colour in ["silver", "cyan", "purple", "gold"]),
+
+    *( (a["faithful"], c[colour]) for colour in ["silver", "brown", "yellow", "black", "red", "white", "dark grey", "maroon", "grey", "green", "dark green", "blue"]),
+   
     *( (a["abhorrent"], c[colour]) for colour in ["pink", "magenta", "orange", "brown", "yellow", "black", "red", "white", "cyan", "green", "purple", "lime", "blue"]),
 
     *( (a["abrasive"], c[colour]) for colour in ["pink", "magenta", "black", "red", "white", "cyan", "grey", "green", "lime", "blue"]),
@@ -38,7 +125,7 @@ colour_adjective_list = [
 
     *( (a["amoral"], c[colour]) for colour in ["black", "red", "white", "gold"]),
 
-    *( (a["ancient"], c[colour]) for colour in ["silver", "brown", "yellow", "black", "white", "dark grey", "maroon", "grey", "purple", "dark green", "gold"]),
+    *( (a["ancient"], c[colour]) for colour in ["silver", "brown", "yellow", "black", "white", "dark grey", "maroon", "grey", "purple", "dark green", "gold"]), 
 
     *( (a["apocalyptic"], c[colour]) for colour in ["pink", "magenta", "silver", "orange", "brown", "yellow", "black", "red", "white", "cyan", "dark grey", "maroon", "grey", "green", "purple", "lime", "dark green", "blue", "gold"]),
 
@@ -343,4 +430,5 @@ colour_adjective_list = [
     *( (a["winter"], c[colour]) for colour in ["silver", "black", "white", "dark grey", "grey", "blue"]),
 
     *( (a["zany"], c[colour]) for colour in ["pink", "magenta", "silver", "orange", "brown", "yellow", "black", "red", "white", "cyan", "dark grey", "maroon", "grey", "green", "purple", "lime", "dark green", "blue", "gold"])
- ]
+
+]
