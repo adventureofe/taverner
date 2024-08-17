@@ -3,29 +3,32 @@ from sql.generate.species.species_list import species_list
 def sql_table_drop(cursor, table_name): cursor.execute(f"DROP TABLE IF EXISTS {table_name}")
 
 def species_create(connection, cursor):
+    table_name = "species"
+    list_name = species_list
+    
     # overwrite existing table if it already exists
-    sql_table_drop(cursor, "species")
+    sql_table_drop(cursor, table_name)
 
     # create colour table
-    cursor.execute('''CREATE TABLE species 
+    cursor.execute(f'''CREATE TABLE {table_name} 
 (
     id INTEGER PRIMARY KEY,
-    name TEXT NOT NULL,
+    name TEXT NOT NULL CHECK(length(name) <= 128),
     colour INTEGER NOT NULL
 )''')
 
-    cursor.executemany("INSERT INTO species(name, colour) VALUES (?, ?)", list(species_list))
+    cursor.executemany(f"INSERT INTO {table_name}(name, colour) VALUES (?, ?)", list(list_name))
 
-    cursor.execute("DROP VIEW IF EXISTS vw_species")
+    cursor.execute(f"DROP VIEW IF EXISTS vw_{table_name}")
 
-    cursor.execute('''
-    CREATE VIEW vw_species AS
+    cursor.execute(f'''
+    CREATE VIEW vw_{table_name} AS
     SELECT
-       s.id AS id,
-       s.name AS name,
+       tn.id AS id,
+       tn.name AS name,
        c.id AS cid,
        c.name AS colour
-    FROM species AS s
+    FROM {table_name} AS tn
     INNER JOIN colour AS c ON e.colour = c.id
 ''')
 

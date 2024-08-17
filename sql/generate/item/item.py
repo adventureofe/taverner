@@ -9,6 +9,7 @@ def sql_table_print(cursor, table_name): print(cursor.execute(f"SELECT * FROM {t
 
 def item_create(connection, cursor):
     table_name = "item"
+    list_name = item_list
 
     # overwrite existing table if it already exists
     sql_table_drop(cursor, table_name)
@@ -17,7 +18,7 @@ def item_create(connection, cursor):
     cursor.execute(f'''CREATE TABLE {table_name} 
 (
     id INTEGER PRIMARY KEY,
-    name TEXT NOT NULL CHECK(length(name) <= 64),
+    name TEXT NOT NULL CHECK(length(name) <= 128),
     item_diet INTEGER NOT NULL,
     colour INTEGER NOT NULL,
     element INTEGER NOT NULL,
@@ -28,7 +29,7 @@ def item_create(connection, cursor):
 )''')
 
     #insert values into table
-    cursor.executemany(f"INSERT INTO {table_name}(name, item_diet, colour, element, description) VALUES (?, ?, ?, ?, ?)", list(item_list))
+    cursor.executemany(f"INSERT INTO {table_name}(name, item_diet, colour, element, description) VALUES (?, ?, ?, ?, ?)", list(list_name))
 
     cursor.execute(f"DROP VIEW IF EXISTS vw_{table_name}")
 

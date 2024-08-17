@@ -7,11 +7,14 @@ from sql.generate.element.element_effectiveness.element_effectiveness_type.eleme
 def sql_table_drop(cursor, table_name): cursor.execute(f"DROP TABLE IF EXISTS {table_name}")
 
 def element_effectiveness_type_create(connection, cursor):
+    table_name = "element_effectiveness_type"
+    list_name = element_effectiveness_type_list
+
     # overwrite existing table if it already exists
-    sql_table_drop(cursor, "element_effectiveness_type")
+    sql_table_drop(cursor, table_name)
 
     # create table
-    cursor.execute('''CREATE TABLE element_effectiveness_type
+    cursor.execute(f'''CREATE TABLE {table_name}
     (
     id INTEGER PRIMARY KEY,
     name TEXT NOT NULL CHECK(length(name) <= 64),
@@ -19,22 +22,22 @@ def element_effectiveness_type_create(connection, cursor):
     multiplier INTEGER NOT NULL
     )''')
 
-    cursor.executemany("INSERT INTO element_effectiveness_type(name, level, multiplier) VALUES (?, ?, ?)", element_effectiveness_type_list)
+    cursor.executemany(f"INSERT INTO {table_name}(name, level, multiplier) VALUES (?, ?, ?)", list_name)
 
 
 
     #overwrite existing table if it already exists
-    cursor.execute('DROP VIEW IF EXISTS vw_element_effectiveness_type')
+    cursor.execute(f'DROP VIEW IF EXISTS vw_{table_name}')
 
     #create view for table
-    cursor.execute('''
-    CREATE VIEW vw_element_effectiveness_type AS
+    cursor.execute(f'''
+    CREATE VIEW vw_{table_name} AS
     SELECT
-    e.id AS id,
-    e.level AS level,
-    e.name AS name,
-    e.multiplier as mult
-    FROM element_effectiveness_type AS e;
+    tn.id AS id,
+    tn.level AS level,
+    tn.name AS name,
+    tn.multiplier as mult
+    FROM {table_name} AS tn;
     ''')
 
     # make changes permanent
