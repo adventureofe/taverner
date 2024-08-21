@@ -5,6 +5,7 @@ import matplotlib.pyplot as plt
 
 from sql.generate.colour.colour import colour_create
 
+from sql.generate.language.adjective.adjective_connotation.adjective_connotation import adjective_connotation_create
 
 from sql.generate.language.adjective.adjective import adjective_create
 
@@ -25,6 +26,20 @@ from sql.generate.element.element_effectiveness.element_effectiveness_type.eleme
 from sql.generate.element.element import element_create
 
 from sql.generate.element.element_type.element_type import element_type_create
+
+
+from sql.generate.move.move_type.move_type import move_type_create
+
+from sql.generate.move.move_category.move_category import move_category_create
+
+from sql.generate.move.move import move_create
+
+
+from sql.generate.species.species_family.species_family import species_family_create
+
+from sql.generate.species.species_type.species_type import species_type_create
+
+from sql.generate.species.species import species_create
 
 
 def sql_table_drop(cursor, table_name): cursor.execute(f"DROP TABLE IF EXISTS {table_name}")
@@ -51,15 +66,19 @@ def main() -> int:
     # get PANDAS dataframe
     colour_create(connection, cursor)
     df_colour = panda(connection, "colour")
-    print(df_colour, end="\n\n")
+    #print(df_colour, end="\n\n")
+
+    adjective_connotation_create(connection, cursor)
+    df_adjective_connotation = panda(connection, "adjective_connotation")
+    #print(df_adjective_connotation)
 
     adjective_create(connection, cursor)
     df_adjective = panda(connection, "adjective")
-    print(df_adjective)
+    #print(df_adjective)
 
     colour_adjective_create(connection, cursor)
     df_colour_adjective = panda(connection, "colour_adjective")
-    print(df_colour_adjective)
+    #print(df_colour_adjective)
 
     item_diet_consume_create(connection, cursor)
     df_item_diet_consume = panda(connection, "item_diet_consume")
@@ -87,7 +106,32 @@ def main() -> int:
 
     element_effectiveness_create(connection, cursor)
     df_element_effectiveness = panda(connection, "element_effectiveness")
-    print(df_element_effectiveness)
+    #print(df_element_effectiveness)
+
+    move_type_create(connection, cursor)
+    df_move_type = panda(connection, "move_type")
+    #print(df_move_type)
+
+    move_category_create(connection, cursor)
+    df_move_category = panda(connection, "move_category")
+    #print(df_move_category)
+
+    move_create(connection, cursor)
+    df_move = panda(connection, "move")
+    #print(df_move)
+
+    species_family_create(connection, cursor)
+    df_species_family = panda(connection, "species_family")
+    #print(df_species_family)
+
+
+    species_type_create(connection, cursor)
+    df_species_type= panda(connection, "species_type")
+    #print(df_species_type)
+
+    species_create(connection, cursor)
+    df_species= panda(connection, "species")
+    #print(df_species)
 
     sql_change_print(connection)
     cursor.close()
