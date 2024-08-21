@@ -1,16 +1,8 @@
-# colour list (1) pink (2) magenta (3) silver (4) orange (5) brown (6) yellow (7) black (8) red (9) white
-# (10) cyan (11) dark grey (12) maroon (13)
-
 from sql.generate.colour.colour_list import colour_list
 from sql.generate.language.adjective.adjective_list import adjective_list
 
-print(adjective_list)
-
 c = {color[0]: index+1 for index, color in enumerate(colour_list)}
 a = {adjective[0]: index+1 for index, adjective in enumerate(adjective_list)}
-
-
-print(adjective_list)
 
 colour_adjective_list = [
     *( (a["scruffy"], c[colour]) for colour in ["orange", "brown", "yellow", "black", "red", "white",  "dark grey",  "grey"]),

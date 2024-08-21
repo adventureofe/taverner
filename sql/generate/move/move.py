@@ -2,7 +2,6 @@ import sys
 import sqlite3
 import pandas as pd
 
-
 from sql.generate.move.move_list import move_list
 
 def sql_table_drop(cursor, table_name): cursor.execute(f"DROP TABLE IF EXISTS {table_name}")
@@ -57,8 +56,6 @@ def move_create(connection, cursor):
     INNER JOIN element AS e on tn.element = e.id
     INNER JOIN move_type AS mt on tn.type = mt.id
     INNER JOIN move_category AS mc on tn.category = mc.id
-
-
 ''')
 
     # make changes permanent

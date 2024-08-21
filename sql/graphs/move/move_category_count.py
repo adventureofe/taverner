@@ -14,7 +14,6 @@ def main() -> int:
     GROUP BY mc.name
     ORDER BY move_count DESC
     """
-   
 
     # Fetch data
     df = pd.read_sql_query(query, connection)
