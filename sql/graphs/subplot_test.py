@@ -56,6 +56,8 @@ def main() -> int:
     ax.yaxis.set_major_locator(MultipleLocator(1))
     plt.grid(True, color=green_color, linestyle="--", linewidth=0.5)
 
+    plt.show()
+
 
     return 0
 
