@@ -19,7 +19,11 @@ def count_entries():
         "item_diet",
         "item_diet_consume",
         "move",
-        "species"
+        "move_category",
+        "move_type",
+        "species",
+        "species_type",
+        "species_family",
     ]
 
     print("Table Entry Counts:")
