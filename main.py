@@ -3,6 +3,7 @@ import sqlite3
 import pandas as pd
 import matplotlib.pyplot as plt
 
+from sql.generate.colour.colour_darkness.colour_darkness import colour_darkness_create
 from sql.generate.colour.colour import colour_create
 
 from sql.generate.language.adjective.adjective_connotation.adjective_connotation import adjective_connotation_create
@@ -10,6 +11,8 @@ from sql.generate.language.adjective.adjective_connotation.adjective_connotation
 from sql.generate.language.adjective.adjective import adjective_create
 
 from sql.generate.language.adjective.colour_adjective.colour_adjective import colour_adjective_create
+
+from sql.generate.language.adjective.element_adjective.element_adjective import element_adjective_create
 
 
 from sql.generate.item.item import item_create
@@ -41,6 +44,15 @@ from sql.generate.species.species_type.species_type import species_type_create
 
 from sql.generate.species.species import species_create
 
+from sql.generate.moveset.moveset_chance.moveset_chance import moveset_chance_create
+
+from sql.generate.moveset.species_moveset import species_moveset_create
+
+from sql.generate.language.name.person_name.person_name_gender.person_name_gender import person_name_gender_create
+
+from sql.generate.language.name.person_name.person_name_category.person_name_category import person_name_category_create
+
+from sql.generate.language.name.person_name.person_name import person_name_create
 
 def sql_table_drop(cursor, table_name): cursor.execute(f"DROP TABLE IF EXISTS {table_name}")
 def sql_table_print(cursor, table_name): print(cursor.execute(f"SELECT * FROM {table_name}").fetchall())
@@ -63,6 +75,10 @@ def main() -> int:
     # make a pointer to issue sql statements to database
     cursor = connection.cursor()
 
+    colour_darkness_create(connection, cursor)
+    df_colour_darkness = panda(connection, "colour_darkness")
+    print(df_colour_darkness)
+
     # get PANDAS dataframe
     colour_create(connection, cursor)
     df_colour = panda(connection, "colour")
@@ -79,6 +95,10 @@ def main() -> int:
     colour_adjective_create(connection, cursor)
     df_colour_adjective = panda(connection, "colour_adjective")
     #print(df_colour_adjective)
+
+    element_adjective_create(connection, cursor)
+    df_element_adjective =panda(connection, "element_adjective")
+    print(df_element_adjective)
 
     item_diet_consume_create(connection, cursor)
     df_item_diet_consume = panda(connection, "item_diet_consume")
@@ -124,7 +144,6 @@ def main() -> int:
     df_species_family = panda(connection, "species_family")
     #print(df_species_family)
 
-
     species_type_create(connection, cursor)
     df_species_type= panda(connection, "species_type")
     #print(df_species_type)
@@ -132,6 +151,28 @@ def main() -> int:
     species_create(connection, cursor)
     df_species= panda(connection, "species")
     #print(df_species)
+
+    moveset_chance_create(connection, cursor)
+    df_moveset_chance = panda(connection, "moveset_chance")
+    #print(df_moveset_chance)
+    
+    species_moveset_create(connection, cursor)
+    df_species_moveset=panda(connection, "species_moveset")
+    #print(df_species_moveset)
+
+    person_name_gender_create(connection, cursor)
+    df_person_name_gender=panda(connection, "person_name_gender")
+    #print(df_person_name_gender)
+    
+    person_name_category_create(connection, cursor)
+    df_person_name_category=panda(connection, "person_name_category")
+    #print(df_person_name_category)
+
+    person_name_create(connection, cursor)
+    df_person_name=panda(connection, "person_name")
+    #print(df_person_name)
+    
+    
 
     sql_change_print(connection)
     cursor.close()

@@ -11,6 +11,8 @@ def item_create(connection, cursor):
     table_name = "item"
     list_name = item_list
 
+    print("item_create DEBUG")
+
     # overwrite existing table if it already exists
     sql_table_drop(cursor, table_name)
 

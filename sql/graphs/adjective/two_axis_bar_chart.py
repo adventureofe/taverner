@@ -28,3 +28,6 @@ def two_axis_bar_chart(x_axis, y_axis, title, x_label, y_label, mult_one = False
     ax.spines['bottom'].set_color(green_color)
 
     plt.show()
+
+#two_axis_bar_chart(["t","B","ar","cha","rt"], [4,2,5,4,1], "xlabel", "ylabel", True)
+

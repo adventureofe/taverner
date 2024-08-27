@@ -15,7 +15,7 @@ def species_create(connection, cursor):
     id INTEGER PRIMARY KEY,
     species_family INTEGER NOT NULL,
     species_type INTEGER NOT NULL,
-    subname TEXT NOT NULL CHECK(length(subname) <= 128),
+    name TEXT NOT NULL CHECK(length(name) <= 128),
     colour_primary INTEGER NOT NULL,
     colour_secondary INTEGER NOT NULL,
     height_min INTEGER NOT NULL,
@@ -31,7 +31,7 @@ def species_create(connection, cursor):
 
 )''')
 
-    cursor.executemany(f"INSERT INTO {table_name}(species_family, species_type, subname, colour_primary, colour_secondary, height_min, height_max, weight_min, weight_max) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)", list(list_name))
+    cursor.executemany(f"INSERT INTO {table_name}(species_family, species_type, name, colour_primary, colour_secondary, height_min, height_max, weight_min, weight_max) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)", list(list_name))
 
     cursor.execute(f"DROP VIEW IF EXISTS vw_{table_name}")
 
@@ -43,7 +43,7 @@ def species_create(connection, cursor):
        sf.name AS species_family,
        st.id AS stid,
        st.name AS species_type,
-       tn.subname AS subname,
+       tn.name AS name,
        cp.id AS cpid,
        cp.name AS colour_primary,
        cs.id AS csid,

@@ -2,9 +2,11 @@ from sql.generate.moveset.moveset_chance.moveset_chance_list import moveset_chan
 
 def sql_table_drop(cursor, table_name): cursor.execute(f"DROP TABLE IF EXISTS {table_name}")
 
-def move_type_create(connection, cursor):
+def moveset_chance_create(connection, cursor):
     table_name = "moveset_chance"
     list_name = moveset_chance_list
+
+    print("moveset_chance_create DEBUG")
     
     # overwrite existing table if it already exists
     sql_table_drop(cursor, table_name)
@@ -16,7 +18,9 @@ def move_type_create(connection, cursor):
     name TEXT NOT NULL CHECK(length(name) <= 128)
 )''')
 
-    cursor.executemany(f"INSERT INTO {table_name}(name) VALUES (?)", [(name,) for name in list_name])
+    moveset_chance_tuples = [(value,) for value in list_name]
+
+    cursor.executemany(f"INSERT INTO {table_name}(name) VALUES (?)", moveset_chance_tuples)
 
     cursor.execute(f"DROP VIEW IF EXISTS vw_{table_name}")
 
