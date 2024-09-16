@@ -1,11 +1,10 @@
 import sys
 import sqlite3
 import pandas as pd
+from sql.utility.sql_table_funcs import sql_table_drop, sql_table_print
 
 from sql.generate.colour.colour_darkness.colour_darkness_list import colour_darkness_list
 
-def sql_table_drop(cursor, table_name): cursor.execute(f"DROP TABLE IF EXISTS {table_name}")
-def sql_table_print(cursor, table_name): print(cursor.execute(f"SELECT * FROM {table_name}").fetchall())
 
 def colour_darkness_create(connection, cursor):
     table_name = "colour_darkness"
@@ -21,9 +20,7 @@ def colour_darkness_create(connection, cursor):
     name TEXT NOT NULL CHECK(length(name) <= 128)
     )''')
 
-    colour_darkness_tuples = [(value,) for value in list_name]
-
-    cursor.executemany(f"INSERT INTO {table_name}(name) VALUES (?)", colour_darkness_tuples)
+    cursor.executemany(f"INSERT INTO {table_name}(name) VALUES (?)", [(name,) for name in list_name])
 
     cursor.execute(f"DROP VIEW IF EXISTS vw_{table_name}")
 

@@ -1,6 +1,5 @@
 from sql.generate.element.element_list import element_list
-
-def sql_table_drop(cursor, table_name): cursor.execute(f"DROP TABLE IF EXISTS {table_name}")
+from sql.utility.sql_table_funcs import sql_table_drop, sql_table_print
 
 def element_create(connection, cursor):
     table_name = "element"

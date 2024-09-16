@@ -1,6 +1,6 @@
 from sql.generate.move.move_category.move_category_list import move_category_list
 
-def sql_table_drop(cursor, table_name): cursor.execute(f"DROP TABLE IF EXISTS {table_name}")
+from sql.utility.sql_table_funcs import sql_table_drop, sql_table_print
 
 def move_category_create(connection, cursor):
     table_name = "move_category"

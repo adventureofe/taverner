@@ -1,6 +1,6 @@
 from sql.generate.move.move_type.move_type_list import move_type_list
 
-def sql_table_drop(cursor, table_name): cursor.execute(f"DROP TABLE IF EXISTS {table_name}")
+from sql.utility.sql_table_funcs import sql_table_drop, sql_table_print
 
 def move_type_create(connection, cursor):
     table_name = "move_type"

@@ -1,6 +1,6 @@
 from sql.generate.species.species_family.species_family_list import species_family_list
 
-def sql_table_drop(cursor, table_name): cursor.execute(f"DROP TABLE IF EXISTS {table_name}")
+from sql.utility.sql_table_funcs import sql_table_drop, sql_table_print
 
 def species_family_create(connection, cursor):
     table_name = "species_family"

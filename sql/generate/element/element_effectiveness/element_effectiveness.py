@@ -1,6 +1,7 @@
 import sys
 import sqlite3
 import pandas as pd
+from sql.utility.sql_table_funcs import sql_table_drop, sql_table_print
 
 from sql.generate.element.element_effectiveness.element_effectiveness_list import element_effectiveness_list
 

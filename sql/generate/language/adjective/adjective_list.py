@@ -2,6 +2,63 @@ from sql.generate.language.adjective.adjective_connotation.adjective_connotation
 ac = {adjective_connotation: index+1 for index, adjective_connotation in enumerate(adjective_connotation_list)}
 
 adjective_list = [
+    #for colours
+    #black  
+    ("black", ac["neutral"]),
+    ("blackish", ac["neutral"]),
+    ("cosmic", ac["slightly positive"]),
+    ("silky", ac["neutral"]),
+    ("sombre", ac["slightly negative"]),
+    #blue
+    ("blue", ac["neutral"]),
+    ("bluey", ac["neutral"]),
+    ("bluish", ac["neutral"]),
+    ("aerial", ac["neutral"]),
+    ("sky", ac["neutral"]),
+    ("sea", ac["neutral"]),
+    #white 
+    ("white", ac["neutral"]),
+    ("whitish", ac["neutral"]),
+    ("angelic", ac["extremely positive"]),
+    ("blessed", ac["extremely positive"]),
+    ("pasty", ac["neutral"]),
+    ("pearly", ac["slightly positive"]),
+    ("snow", ac["neutral"]),
+    #pink
+    ("pink", ac["neutral"]),
+    ("pinky", ac["neutral"]),
+    ("pinkish", ac["neutral"]),
+    ("blush", ac["neutral"]),
+    ("hot", ac["seductive"]),
+    ("playful", ac["slightly positive"]),
+    ("plush", ac["neutral"]),
+    #brown
+    ("brown", ac["neutral"]),
+    ("browny", ac["neutral"]),
+    ("brownie", ac["neutral"]),
+    ("brownish", ac["neutral"]),
+    ("homely", ac["slightly positive"]),
+    ("cosy", ac["slightly positive"]),
+    ("soily", ac["neutral"]),
+    #red
+    ("red", ac["neutral"]),
+    ("reddish", ac["neutral"]),
+    ("fierce", ac["slightly negative"]),
+    ("fiery", ac["neutral"]),
+    ("chilli", ac["neutral"]),
+    #green
+    ("green", ac["neutral"]),
+    ("greeny", ac["neutral"]),
+    ("greenish", ac["neutral"]),
+    ("natural", ac["slightly positive"]),
+    #purple
+    ("purple", ac["neutral"]),
+    ("purply", ac["neutral"]),
+    ("purplish", ac["neutral"]),
+    ("violet", ac["neutral"]),
+    ("violety", ac["neutral"]),
+    ("ripe", ac["seductive"]),
+    
     #for elements
     #alien
     ("alien", ac["neutral"]),
@@ -81,7 +138,7 @@ adjective_list = [
     ("angelic", ac["extremely positive"]),
     ("apocalyptic", ac["extremely negative"]),
     ("appauling", ac["extremely negative"]),
-    ("appealing", ac["slightly positive"]),
+    ("appealing", ac["extremely positive"]),
     ("apt", ac["slightly positive"]),
     ("arrogant", ac["slightly negative"]),
     ("astonishing", ac["extremely positive"]), 

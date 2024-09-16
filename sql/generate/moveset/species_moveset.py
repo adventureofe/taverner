@@ -1,10 +1,9 @@
 import sys
 import sqlite3
 import pandas as pd
+from sql.utility.sql_table_funcs import sql_table_drop, sql_table_print
 
 from sql.generate.moveset.species_moveset_list import species_moveset_list
-
-def sql_table_drop(cursor, table_name): cursor.execute(f"DROP TABLE IF EXISTS {table_name}")
 
 def species_moveset_create(connection, cursor):
     table_name = "species_moveset"

@@ -1,6 +1,6 @@
 from sql.generate.moveset.moveset_chance.moveset_chance_list import moveset_chance_list
 
-def sql_table_drop(cursor, table_name): cursor.execute(f"DROP TABLE IF EXISTS {table_name}")
+from sql.utility.sql_table_funcs import sql_table_drop, sql_table_print
 
 def moveset_chance_create(connection, cursor):
     table_name = "moveset_chance"

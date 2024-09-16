@@ -1,54 +1,54 @@
+import sys
+import sqlite3
+import pandas as pd
+from sql.utility.sql_table_funcs import sql_table_drop, sql_table_print
 
+from sql.generate.language.name.place_name.place_name_start_list import place_name_start_list
 
-'''
-start_list = [
-#name #region # syllable
-    ('abbey', 'irish', 2),
-    ('abbey', 'english', 2),
-    ('anna', 'english', 2),
-    ('anna', 'irish', 2),
-    ('ash', 'irish', 1),
-    ('ash', 'england', 1),
-    ('ard', 'irish', 1),
-    ('augh', 'irish', 1),
-    ('bally', 'irish', 2),
-    ('bun', 'irish', 1),
-    ('bel', 'irish', 1),
-    ('cole', 'irish', 1),
-    ('cush', 'irish', 1),
-    ('dun', 'irish', 1),
-    ('dunnagh', 'irish', 2),
-    ('donny', 'irish', 2),
-    ('drum', 'irish', 1),
-    ('glen', 'irish', 1),
-    ('kil', 'irish', 1),
-    ('keal', 'irish', 1),
-    ('lough', 'irish', 1),
-    ('lis', 'irish', 1),
-    ('maghera', 'irish', 3),
-    ('rath', 'irish', 1),
-    ('tulla', 'irish', 2),
-    ('ross', 'irish', 1),
-    ('stran', 'irish', 1),
-    ('sally', 'irish', 2),
-    ('mull', 'irish', 1),
-    ('tewkes', 'english', 1),
-    ('ashing', 'english', 2),
-    ('barn', 'english', 1),
-    ('bed', 'english', 1),
-    ('bing', 'english', 1),
-    ('billing', 'english', 2),
-    ('birken', 'english', 2),
-    ('brist', 'english', 1),
-    ('brad', 'english', 1),
-    ('ches', 'english', 1),
-    ('chis', 'english', 1),
-    ('dart', 'english', 1),
-    ('dew', 'english', 1),
-    ('hale', 'english', 1),
-    ('hem', 'english', 1),
-    ('roth', 'english', 1),
-    ('roth', 'english', 1)
-]
+def item_create(connection, cursor):
+    table_name = "place_name_start"
+    list_name = place_name_start_list
 
-'''
+    print("item_create DEBUG")
+
+    # overwrite existing table if it already exists
+    sql_table_drop(cursor, table_name)
+
+    # create table
+    cursor.execute(f'''CREATE TABLE {table_name} 
+(
+    id INTEGER PRIMARY KEY,
+    name TEXT NOT NULL CHECK(length(name) <= 128),
+    item_diet INTEGER NOT NULL,
+    colour INTEGER NOT NULL,
+    element INTEGER NOT NULL,
+    description TEXT NOT NULL CHECK(length(description) <= 128),
+    FOREIGN KEY(item_diet) REFERENCES item_diet(id),
+    FOREIGN KEY(colour) REFERENCES colour(id),
+    FOREIGN KEY(element) REFERENCES element(id)
+)''')
+
+    #insert values into table
+    cursor.executemany(f"INSERT INTO {table_name}(name, item_diet, colour, element, description) VALUES (?, ?, ?, ?, ?)", list(list_name))
+
+    cursor.execute(f"DROP VIEW IF EXISTS vw_{table_name}")
+
+    cursor.execute(f'''CREATE VIEW vw_{table_name} AS
+    SELECT
+        tn.id AS id,
+        tn.name AS name,
+        id.id AS did,
+        id.name as diet,
+        c.id AS cid,
+        c.name AS colour,
+        e.id AS eid,
+        e.name as element,
+        tn.description AS description
+    FROM {table_name} AS tn
+    INNER JOIN colour AS c ON tn.colour = c.id
+    INNER JOIN element AS e ON tn.element = e.id
+    INNER JOIN item_diet AS id on tn.item_diet = id.id
+    ''')
+
+    # make changes permanent
+    connection.commit()

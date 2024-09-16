@@ -1,11 +1,12 @@
 import sys
 import sqlite3
 import pandas as pd
+from sql.utility.sql_table_funcs import sql_table_drop, sql_table_print
 
 from sql.generate.colour.colour_darkness.colour_darkness_list import colour_darkness_list
 from sql.generate.colour.colour_list import colour_list
 
-cd = {colour_darkness: index+1 for index, colour_darkness in enumerate(colour_darkness_list)}
+cd = {colour_darkness[0]: index+1 for index, colour_darkness in enumerate(colour_darkness_list)}
 
 def sql_table_drop(cursor, table_name): cursor.execute(f"DROP TABLE IF EXISTS {table_name}")
 

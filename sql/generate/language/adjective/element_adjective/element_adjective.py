@@ -1,12 +1,9 @@
 import sys
 import sqlite3
 import pandas as pd
+from sql.utility.sql_table_funcs import sql_table_drop, sql_table_print
 
 from sql.generate.language.adjective.element_adjective.element_adjective_list import element_adjective_list
-
-
-def sql_table_drop(cursor, table_name): cursor.execute(f"DROP TABLE IF EXISTS {table_name}")
-def sql_table_print(cursor, table_name): print(cursor.execute(f"SELECT * FROM {table_name}").fetchall())
 
 def element_adjective_create(connection, cursor):
     table_name = "element_adjective"
