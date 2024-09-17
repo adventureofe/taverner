@@ -1,0 +1,18 @@
+item_diet_consume_list = [
+    ('delectable'),
+    ('delicious'),
+    ('nutritious'),
+    ('tasty'),
+    ('palatabe'),  
+    ('acceptable'),
+    ('edible'),
+    ('monotonous'),
+    ('tough'),
+    ('hard'),
+    ('solid'),
+    ('offensive'),
+    ('inedible'),
+    ('harmful'),
+    ('mind-altering'),
+    ('toxic'),
+]
