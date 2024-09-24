@@ -1,0 +1,4 @@
+#+title: Notes
+
+make the most used move the least expensive to replace
+so count movs movd
