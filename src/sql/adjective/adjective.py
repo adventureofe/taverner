@@ -21,17 +21,14 @@ def adjective_create(connection, cursor, name="adjective", values=adjective_list
 
         values=values,
 
-        view_query='''
+        view_query=f'''
         SELECT
-        tn.id AS id,
-        tn.name AS name,
-        tn.r AS r,
-        tn.g AS g,
-        tn.b AS b,
-        tn.darkness AS cdid,
-        cd.name AS colour_darkness
-        FROM colour AS tn
-        INNER JOIN colour_darkness AS cd ON tn.darkness = cd.id
+        t.id AS id,
+        t.name AS name,
+        ac.id AS cid,
+        ac.name AS connotation
+        FROM {name} AS t
+        INNER JOIN adjective_connotation AS ac ON t.connotation = ac.id
         ''',
         insert_query="INSERT INTO colour (name, r, g, b, darkness) VALUES (?, ?, ?, ?, ?)"
 
