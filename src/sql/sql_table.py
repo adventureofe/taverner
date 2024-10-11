@@ -3,6 +3,11 @@ import sqlite3
 from dataclasses import dataclass
 from typing import List, Tuple, Optional
 
+class Config:
+    string_max_length = 64
+
+    id = "id INTEGER PRIMARY KEY AUTOINCREMENT"
+    text = lambda x: f"{x} TEXT NOT NULL CHECK(length({x}) <= {Config.string_max_length})"
 
 @dataclass
 class SQLTable:
@@ -10,8 +15,9 @@ class SQLTable:
     columns: List[str]
     foreign_keys: List[str]
     values: List[Tuple]
-    view_query: str
-    insert_query : str
+    insert_query: str  # Move this up before triggers
+    view_query: str = ""
+    triggers: str = ""  # This should be the last one
 
     def drop(self, connection, cursor):
         cursor.execute(f"DROP TABLE IF EXISTS {self.name}")
@@ -38,17 +44,25 @@ class SQLTable:
     def change_print(self, connection, cursor):
         print(f"({self.name})(total connection changes)=>{connection.total_changes}")
 
-
     def to_df(self, connection, cursor) -> pd.DataFrame:
         query = f"SELECT * FROM vw_{self.name}"
         return pd.read_sql_query(query, connection)
+
+    def create_trigger(self, connection, cursor):
+        if self.triggers:  # Only create trigger if it is defined
+            cursor.execute(self.triggers)
 
     def create(self, connection, cursor):
         self.drop(connection, cursor)
         self.drop_view(connection, cursor)
         self.init(connection, cursor)
         self.insert(connection, cursor)
-        self.create_view(connection, cursor)
+
+        if self.view_query:
+            self.create_view(connection, cursor)
+
+        if self.triggers:
+            self.create_trigger(connection, cursor)
 
     def init(self, connection, cursor):
         foreign_keys_sql = f", {', '.join(self.foreign_keys)}" if self.foreign_keys else ""
@@ -73,23 +87,22 @@ class SQLTable:
     def drop_view(self, connection, cursor):
         cursor.execute(f"DROP VIEW IF EXISTS vw_{self.name}")
 
-
 def base_table_create(connection, cursor, table_name, values):
     table = SQLTable(
         name=table_name,
 
         columns=[
-            "id INTEGER PRIMARY KEY AUTOINCREMENT",
-            "name TEXT NOT NULL CHECK(length(name) <= 128)"
+            Config.id,
+            Config.text("name")
         ],
 
         foreign_keys=[],
         values = values,
 
         view_query=f'''
-        SELECT tn.id AS id,
-        tn.name AS name
-        FROM {table_name} AS tn
+        SELECT t.id AS id,
+        t.name AS name
+        FROM {table_name} AS t
         ''',
 
         insert_query=f"INSERT INTO {table_name} (name) VALUES (?)"

@@ -2,21 +2,24 @@ import sys
 import sqlite3
 import pandas as pd
 from src.sql.sql_table import SQLTable
+from src.sql.sql_table import Config
 
 from src.sql.colour.colour_list import colour_list
 
 def colour_create(connection, cursor, name="colour", values=colour_list):
+    print(Config.id)
     table = SQLTable(
         name="colour",
 
         columns=[
-            "id INTEGER PRIMARY KEY AUTOINCREMENT",
-            "name TEXT NOT NULL CHECK(length(name) <= 128)",
+            Config.id,
+            Config.text("name"),
             "r INTEGER NOT NULL CHECK(r >= 0 AND r <= 255)",
             "g INTEGER NOT NULL CHECK(g >= 0 AND g <= 255)",
             "b INTEGER NOT NULL CHECK(b >= 0 AND b <= 255)",
+            "hex TEXT",
             "darkness INTEGER NOT NULL",
-            "base INTEGER NOT NULL"
+            "base INTEGER NOT NULL",
         ],
 
         foreign_keys=[
@@ -26,28 +29,45 @@ def colour_create(connection, cursor, name="colour", values=colour_list):
 
         values=values,
 
-        view_query='''
+        view_query=f'''
         SELECT
-        tn.id AS id,
-        tn.name AS name,
-        tn.r AS r,
-        tn.g AS g,
-        tn.b AS b,
+        t.id AS id,
+        t.name AS name,
+        t.r AS r,
+        t.g AS g,
+        t.b AS b,
+        t.hex AS hex,
 
-        tn.darkness AS cdid,
-        cd.name AS colour_darkness,
+        t.darkness AS did,
+        d.name AS darkness,
 
-        tn.base AS cbid,
-        cb.name AS colour_base
+        t.base AS bid,
+        b.name AS base
 
-        FROM colour AS tn
-        INNER JOIN colour_darkness AS cd ON tn.darkness = cd.id
-        INNER JOIN colour_base AS cb ON tn.base = cb.id
+        FROM {name} AS t
+        INNER JOIN colour_darkness AS d ON t.darkness = d.id
+        INNER JOIN colour_base AS b ON t.base = b.id;
         ''',
-        insert_query="INSERT INTO colour (name, r, g, b, darkness, base) VALUES (?, ?, ?, ?, ?, ?)"
+        insert_query=f"INSERT INTO {name} (name, r, g, b, darkness, base) VALUES (?, ?, ?, ?, ?, ?)",
 
+        triggers=f'''
+        CREATE TRIGGER generate_hex_code
+        AFTER INSERT ON {name}
+        BEGIN
+            UPDATE {name}
+            SET hex = printf('#%02X%02X%02X', NEW.r, NEW.g, NEW.b)
+            WHERE id = NEW.id;
+        END;
+        '''
     )
 
     table.create(connection, cursor)
+
+    # Debug: Check if the trigger is created
+    cursor.execute("SELECT name FROM sqlite_master WHERE type='trigger' AND name='generate_hex_code';")
+    print(cursor.fetchall())
+
+    # Debug: Print current state of the table
     table.change_print(connection, cursor)
+
     return table

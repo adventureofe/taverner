@@ -1,57 +1,69 @@
 import sqlite3
-import sys
-import sqlite3
 import pandas as pd
-import numpy as np
-import math
 import matplotlib.pyplot as plt
-from matplotlib.ticker import MultipleLocator
+import math
 
-def fetch_colours_from_db(connection):
-    """
-    Fetch colour data from the database.
-    """
-    query = """
-    SELECT name, r, g, b, darkness
-    FROM vw_colour
-    """  # Adjust the table name and columns as needed
-    return pd.read_sql_query(query, connection)
+def plot_colors(database_path):
+    # Connect to the SQLite database
+    connection = sqlite3.connect(database_path)
+    cursor = connection.cursor()
 
-def plot_colours(colour_df):
-    """
-    Plot colours from the DataFrame using Matplotlib.
-    """
-    # Set up the plot
-    fig, ax = plt.subplots(figsize=(12, 14))
+    # Query to select all colors from the colour table
+    query = "SELECT name, r, g, b FROM colour"
+
+    # Execute the query
+    cursor.execute(query)
+
+    # Fetch all results
+    results = cursor.fetchall()
+
+    # Get column names from the cursor description
+    columns = [column[0] for column in cursor.description]
+
+    # Create a DataFrame from the results
+    df = pd.DataFrame(results, columns=columns)
+
+    # Check if the DataFrame is empty
+    if df.empty:
+        print("No data found in the 'colour' table.")
+        return
+
+    # Define number of rows and columns
+    n_colors = len(df)
+    n_rows = 3  # Number of rows to display
+    n_cols = math.ceil(n_colors / n_rows)  # Calculate columns based on total colors
+
+    # Create the plot
+    fig, ax = plt.subplots(figsize=(10, 5))
+
+    # Create a color patch for each color
+    for idx, color_row in df.iterrows():
+        # Calculate row and column index
+        col = idx % n_cols
+        row = idx // n_cols
+
+        # Ensure the RGB values are normalized to [0, 1]
+        color = (color_row['r'] / 255, color_row['g'] / 255, color_row['b'] / 255)
+
+        # Create rectangle
+        ax.add_patch(plt.Rectangle((col, row), 1, 1, color=color))
+
+        # Calculate text color for better contrast
+        text_color = 'white' if sum(color) < 1.5 else 'black'  # Simple brightness check
+        ax.text(col + 0.5, row + 0.5, color_row['name'], ha='center', va='center', fontsize=10, color=text_color)
+
+    # Set limits and hide axes
+    ax.set_xlim(0, n_cols)
+    ax.set_ylim(0, n_rows)
     ax.axis('off')
 
-    # Number of colors
-    n = len(colour_df)
-
-    # Create a grid of colors
-    for i, row in colour_df.iterrows():
-        colour = np.array([row['r'], row['g'], row['b']]) / 255.0  # Normalize RGB values to [0, 1] range
-        rect = plt.Rectangle((0, i), 1, 1, color=colour, edgecolor='none')
-        ax.add_patch(rect)
-        ax.text(1.1, i + 0.5, f'{row["name"]}\nRGB: ({row["r"]}, {row["g"]}, {row["b"]})\nDesc: {row["description"]}', 
-                va='center', ha='left', fontsize=10)
-
-    # Adjust layout and show plot
-    plt.xlim(0, 2)
-    plt.ylim(0, n)
-    plt.gca().invert_yaxis()  # Reverse the y-axis to have the first color at the top
+    # Show the plot
+    plt.tight_layout()  # Optional: adjust the layout to prevent clipping
     plt.show()
 
-def main() -> int:
-    # Make connection to sqlite3
-    connection = sqlite3.connect("../../../taverner.db")
-
-    # Fetch color data from the database
-    colour_df = fetch_colours_from_db(connection)
-
-    # Plot the colors
-    plot_colours(colour_df)
-
+    # Close the cursor and connection
+    cursor.close()
+    connection.close()
 
 if __name__ == "__main__":
-    sys.exit(main())
+    plot_colors('../../../taverner.db')  # Adjust the path to your database file

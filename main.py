@@ -7,6 +7,9 @@ from src.sql.colour.colour import colour_create
 from src.sql.colour_darkness.colour_darkness import colour_darkness_create
 from src.sql.colour_base.colour_base import colour_base_create
 
+from src.sql.element.element import element_create
+from src.sql.move_type.move_type import move_type_create
+
 def main() -> int:
     try:
         connection = sqlite3.connect("taverner.db")
@@ -15,6 +18,9 @@ def main() -> int:
         colour = colour_create(connection, cursor)
         colour_darkness = colour_darkness_create(connection, cursor)
         colour_base = colour_base_create(connection, cursor)
+
+        element = element_create(connection, cursor)
+        move_type = move_type_create(connection, cursor)
 
         # make changes permanent
         connection.commit()
