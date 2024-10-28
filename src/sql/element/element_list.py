@@ -6,6 +6,7 @@ mt = {move_type[0]: index+1 for index, move_type in enumerate(move_type_list)}
 
 element_list = [
     # name          #colour          #move_type
+    ("typeless",    c["colourless"], mt["typeless"]),
     ("alien",       c["magenta"],    mt["physical"]),
     ("air",         c["silver"],     mt["physical"]),
     ("chaos",       c["orange"],     mt["special"]),

@@ -1,5 +1,5 @@
 move_type_list = [
-    ("none",),
+    ("typeless",),
     ("physical",),
     ("special",),
 ]

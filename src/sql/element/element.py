@@ -6,9 +6,9 @@ import pandas as pd
 from src.sql.sql_table import SQLTable
 from src.sql.sql_table import Config
 
-from src.sql.element.element_list import element_list
+from src.sql.element.element_list import element_list as values
 
-def element_create(connection, cursor, name="element", values=element_list):
+def element_create(connection, cursor, name="element", values=values):
     table = SQLTable(
         name="element",
 
