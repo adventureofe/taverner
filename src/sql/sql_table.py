@@ -4,10 +4,18 @@ from dataclasses import dataclass
 from typing import List, Tuple, Optional
 
 class Config:
-    string_max_length = 64
+    string_max_length : str =  64
+    id: int  = "id INTEGER PRIMARY KEY AUTOINCREMENT"
 
-    id = "id INTEGER PRIMARY KEY AUTOINCREMENT"
-    text = lambda x: f"{x} TEXT NOT NULL CHECK(length({x}) <= {Config.string_max_length})"
+    @classmethod
+    def text(cls, x):
+        return f"{x} TEXT NOT NULL CHECK(length({x}) <= {cls.string_max_length})"
+
+    @classmethod
+    def initialize(cls):
+        cls.name = cls.text("name")
+
+Config.initialize()
 
 @dataclass
 class SQLTable:
@@ -46,23 +54,21 @@ class SQLTable:
 
     def to_df(self, connection, cursor) -> pd.DataFrame:
         query = f"SELECT * FROM vw_{self.name}"
-        return pd.read_sql_query(query, connection)
-
-    def create_trigger(self, connection, cursor):
-        if self.triggers:  # Only create trigger if it is defined
-            cursor.execute(self.triggers)
+        df = pd.read_sql_query(query, connection)
+        return df
 
     def create(self, connection, cursor):
         self.drop(connection, cursor)
         self.drop_view(connection, cursor)
         self.init(connection, cursor)
+
         self.insert(connection, cursor)
 
         if self.view_query:
             self.create_view(connection, cursor)
 
-        if self.triggers:
-            self.create_trigger(connection, cursor)
+        #if self.triggers:
+        #    self.create_trigger(connection, cursor)
 
     def init(self, connection, cursor):
         foreign_keys_sql = f", {', '.join(self.foreign_keys)}" if self.foreign_keys else ""
@@ -93,7 +99,7 @@ def base_table_create(connection, cursor, table_name, values):
 
         columns=[
             Config.id,
-            Config.text("name")
+            Config.name
         ],
 
         foreign_keys=[],
