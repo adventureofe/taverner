@@ -12,6 +12,10 @@ from src.sql.move_type.move_type import move_type_create
 from src.sql.move_category.move_category import move_category_create
 from src.sql.move.move import move_create
 
+from src.sql.species_family.species_family import species_family_create
+from src.sql.species_type.species_type import species_type_create
+from src.sql.species.species import species_create
+
 def main() -> int:
     try:
         connection = sqlite3.connect("taverner.db")
@@ -22,9 +26,14 @@ def main() -> int:
         colour_base_create(connection, cursor)
 
         element_create(connection, cursor)
+
         move_type_create(connection, cursor)
         move_category_create(connection, cursor)
         move_create(connection, cursor)
+
+        species_family_create(connection, cursor)
+        species_type_create(connection, cursor)
+        species_create(connection, cursor)
 
         # make changes permanent
         connection.commit()

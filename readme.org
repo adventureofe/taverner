@@ -1,3 +1,9 @@
+* main
+
+* sql
+
+* tests
+
 * list problem
 ** some lists have (), () tuples
 colour darkness list has this, in tuples

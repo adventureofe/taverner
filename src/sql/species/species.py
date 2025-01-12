@@ -15,9 +15,11 @@ def species_create(connection, cursor, name="species", values=values):
 
         columns=[
             Config.id,
-            "family INTEGER NOT NULL",
             "type INTEGER NOT NULL",
+            "lineage INTEGER NOT NULL",
+            "position INTEGER NOT NULL",
             Config.name,
+            "name2 TEXT NOT NULL",
             "height_min INTEGER NOT NULL",
             "height_max INTEGER NOT NULL",
             "weight_min INTEGER NOT NULL",
@@ -25,23 +27,29 @@ def species_create(connection, cursor, name="species", values=values):
         ],
 
         foreign_keys=[
-            "FOREIGN KEY(species_type) REFERENCES species_type(id)",
-            "FOREIGN KEY(species_family) REFERENCES species_family(id)",
+            "FOREIGN KEY(type) REFERENCES species_type(id)",
             "CHECK (height_min <= height_max)",
             "CHECK (weight_min <= weight_max)"
         ],
 
         values=values,
 
+        # removed
+        # t.family AS fid,
+        # f.name AS family,
+        # INNER JOIN species_family AS f ON t.family = f.id;
+
+
         view_query=f'''
         SELECT
         t.id AS id,
 
-        t.family AS fid,
-        f.name AS family,
-
         t.type AS tid,
         st.name AS type,
+
+        t.lineage AS lineage,
+        t.position AS position,
+
 
         t.name AS name,
         t.height_min AS height_min,
@@ -50,11 +58,10 @@ def species_create(connection, cursor, name="species", values=values):
         t.weight_max AS weight_max
 
         from {name} AS t
-        INNER JOIN species_type AS st ON t.type = st.id
-        INNER JOIN species_family AS f ON t.family = f.id;
+        INNER JOIN species_type AS st ON t.type = st.id;
         ''',
 
-        insert_query = f"INSERT INTO {name} (family, type, name, height_min, height_max, weight_min, weight_max)"
+        insert_query = f"INSERT INTO {name} (type, lineage, position, name, name2, height_min, height_max, weight_min, weight_max) VALUES (?, ?, ?, ?, ?, ? ,? ,? ,?)"
     )
 
     table.create(connection, cursor)
