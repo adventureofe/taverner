@@ -1,6 +1,7 @@
 from src.sql.colour_darkness.colour_darkness_list import colour_darkness_list
 from src.sql.colour_base.colour_base_list import colour_base_list
 
+
 d = {darkness[0]: index+1 for index, darkness in enumerate(colour_darkness_list)}
 b = {base[0]: index+1 for index, base in enumerate(colour_base_list)}
 
