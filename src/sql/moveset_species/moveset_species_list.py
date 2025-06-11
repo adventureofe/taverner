@@ -8,6 +8,7 @@ m = {move[0]: index+1 for index, move in enumerate(move_list)}
 
 
 moveset_species_list = [
+    #species                 move     lvl  chance
     (s["british shorthair"], m["thud"], 0, c["guaranteed"]),
     (s["eurasian lynx"], m["thud"], 0, c["guaranteed"]),
     (s["siberian tiger"], m["thud"], 0, c["guaranteed"]),

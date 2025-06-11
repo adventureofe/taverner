@@ -10,7 +10,7 @@ t = {effectiveness[0]: index+1 for index, effectiveness in enumerate(effectivene
 element_effectiveness_list = [
     #   attacker ,       defender,      effectiveness
     (e["typeless"], e["typeless"], t["neutral"]),
-    (e["typeless"], e["alien"], t["neutral"]),
+    (e["typeless"], e["alien"], t["neutral"]), # always neutral
     (e["typeless"], e["air"], t["neutral"]),
     (e["typeless"], e["chaos"], t["neutral"]),
     (e["typeless"], e["earth"], t["neutral"]),
@@ -29,39 +29,40 @@ element_effectiveness_list = [
     (e["typeless"], e["water"], t["neutral"]),
     (e["typeless"], e["fungus"], t["neutral"]),
 
-    (e["alien"], e["typeless"], t["neutral"]),
-    (e["alien"], e["alien"], t["weak"]),
-    (e["alien"], e["air"], t["somewhat weak"]),
-    (e["alien"], e["chaos"], t["strong"]),
-    (e["alien"], e["earth"], t["neutral"]),
-    (e["alien"], e["electricity"], t["neutral"]),
-    (e["alien"], e["evil"], t["neutral"]),
-    (e["alien"], e["fire"], t["neutral"]),
-    (e["alien"], e["holiness"], t["neutral"]),
-    (e["alien"], e["ice"], t["neutral"]),
-    (e["alien"], e["metal"], t["neutral"]),
-    (e["alien"], e["mutation"], t["extra weak"]),
-    (e["alien"], e["normal"], t["strong"]),
-    (e["alien"], e["plant"], t["weak"]),
+    # REMEMBER THIS IS ATTACKING, DEFENDING IS IN EACH ELEMENT
+    (e["alien"], e["typeless"], t["neutral"]), # always neutral
+    (e["alien"], e["alien"], t["somewhat weak"]), # most are weak, bit different
+    (e["alien"], e["air"], t["somewhat weak"]), # their attacks are bad with air, different on the planet, thematic
+    (e["alien"], e["chaos"], t["extra strong"]), # advanced aliens, know more about chaos? good at attacking it
+    (e["alien"], e["earth"], t["somewhat strong"]), # there's rocks on their planet and they are advanced
+    (e["alien"], e["electricity"], t["somewhat strong"]), #  aliens good with electricity
+    (e["alien"], e["evil"], t["neutral"]), # aliens attacking evil? neutral?
+    (e["alien"], e["fire"], t["somewhat strong"]), # aliens have spaceships they know fire.
+    (e["alien"], e["holiness"], t["weak"]), # kinda funny like religion protects you from aliens?
+    (e["alien"], e["ice"], t["somewhat weak"]), #
+    (e["alien"], e["metal"], t["strong"]), # yeah spaceships
+    (e["alien"], e["mutation"], t["extra weak"]), # their attacks don't attack for mutation
+    (e["alien"], e["normal"], t["strong"]), # funny
+    (e["alien"], e["plant"], t["weak"]), # also funny
     (e["alien"], e["poison"], t["neutral"]),
     (e["alien"], e["radiation"], t["somewhat strong"]),
-    (e["alien"], e["undead"], t["neutral"]),
-    (e["alien"], e["water"], t["neutral"]),
-    (e["alien"], e["fungus"], t["neutral"]),
+    (e["alien"], e["undead"], t["somewhat weak"]),
+    (e["alien"], e["water"], t["weak"]), # can't attack in water aliens
+    (e["alien"], e["fungus"], t["somewhat weak"]), # funny
 
     (e["air"], e["typeless"], t["neutral"]),
-    (e["air"], e["alien"], t["weak"]),
+    (e["air"], e["alien"], t["somewhat strong"]), # yep
     (e["air"], e["air"], t["weak"]),
     (e["air"], e["chaos"], t["neutral"]),
     (e["air"], e["earth"], t["somewhat strong"]),
     (e["air"], e["electricity"], t["somewhat weak"]),
-    (e["air"], e["evil"], t["neutral"]),
-    (e["air"], e["fire"], t["somewhat strong"]),
-    (e["air"], e["holiness"], t["neutral"]),
+    (e["air"], e["evil"], t["somewhat strong"]),
+    (e["air"], e["fire"], t["strong"]),
+    (e["air"], e["holiness"], t["weak"]),
     (e["air"], e["ice"], t["neutral"]),
     (e["air"], e["metal"], t["weak"]),
     (e["air"], e["mutation"], t["strong"]),
-    (e["air"], e["normal"], t["somewhat strong"]),
+    (e["air"], e["normal"], t["somewhat weak"]),
     (e["air"], e["plant"], t["extra strong"]),
     (e["air"], e["poison"], t["neutral"]),
     (e["air"], e["radiation"], t["strong"]),
@@ -79,7 +80,7 @@ element_effectiveness_list = [
     (e["chaos"], e["fire"], t["neutral"]),
     (e["chaos"], e["holiness"], t["strong"]),
     (e["chaos"], e["ice"], t["somewhat weak"]),
-    (e["chaos"], e["metal"], t["weak"]),
+    (e["chaos"], e["metal"], t["somewhat weak"]),
     (e["chaos"], e["mutation"], t["strong"]),
     (e["chaos"], e["normal"], t["strong"]),
     (e["chaos"], e["plant"], t["weak"]),
@@ -110,7 +111,7 @@ element_effectiveness_list = [
     (e["earth"], e["fungus"], t["weak"]),
 
     (e["electricity"], e["typeless"], t["neutral"]),
-    (e["electricity"], e["alien"], t["neutral"]),
+    (e["electricity"], e["alien"], t["somewhat weak"]),
     (e["electricity"], e["air"], t["somewhat strong"]),
     (e["electricity"], e["chaos"], t["neutral"]),
     (e["electricity"], e["earth"], t["extra weak"]),
@@ -150,7 +151,7 @@ element_effectiveness_list = [
     (e["evil"], e["fungus"], t["neutral"]),
 
     (e["fire"], e["typeless"], t["neutral"]),
-    (e["fire"], e["alien"], t["neutral"]),
+    (e["fire"], e["alien"], t["somewhat weak"]),
     (e["fire"], e["air"], t["somewhat weak"]),
     (e["fire"], e["chaos"], t["neutral"]),
     (e["fire"], e["earth"], t["extra weak"]),
@@ -161,13 +162,13 @@ element_effectiveness_list = [
     (e["fire"], e["ice"], t["strong"]),
     (e["fire"], e["metal"], t["strong"]),
     (e["fire"], e["mutation"], t["somewhat strong"]),
-    (e["fire"], e["normal"], t["somewhat strong"]),
-    (e["fire"], e["plant"], t["extra strong"]),
+    (e["fire"], e["normal"], t["neutral"]),
+    (e["fire"], e["plant"], t["extra strong"]), # thematic
     (e["fire"], e["poison"], t["neutral"]),
     (e["fire"], e["radiation"], t["somewhat weak"]),
     (e["fire"], e["undead"], t["strong"]),
-    (e["fire"], e["water"], t["extra weak"]),
-    (e["fire"], e["fungus"], t["strong"]),
+    (e["fire"], e["water"], t["extra weak"]), # theme
+    (e["fire"], e["fungus"], t["strong"]), # has to be
 
     (e["holiness"], e["typeless"], t["neutral"]),
     (e["holiness"], e["alien"], t["somewhat strong"]),
@@ -210,7 +211,7 @@ element_effectiveness_list = [
     (e["ice"], e["fungus"], t["extra strong"]),
 
     (e["metal"], e["typeless"], t["neutral"]),
-    (e["metal"], e["alien"], t["strong"]),
+    (e["metal"], e["alien"], t["neutral"]),
     (e["metal"], e["air"], t["strong"]),
     (e["metal"], e["chaos"], t["weak"]),
     (e["metal"], e["earth"], t["somewhat strong"]),
@@ -230,7 +231,7 @@ element_effectiveness_list = [
     (e["metal"], e["fungus"], t["strong"]),
 
     (e["mutation"], e["typeless"], t["neutral"]),
-    (e["mutation"], e["alien"], t["somewhat strong"]),
+    (e["mutation"], e["alien"], t["extra strong"]),
     (e["mutation"], e["air"], t["weak"]),
     (e["mutation"], e["chaos"], t["weak"]),
     (e["mutation"], e["earth"], t["somewhat weak"]),
@@ -241,7 +242,7 @@ element_effectiveness_list = [
     (e["mutation"], e["ice"], t["neutral"]),
     (e["mutation"], e["metal"], t["somewhat weak"]),
     (e["mutation"], e["mutation"], t["somewhat strong"]),
-    (e["mutation"], e["normal"], t["extra strong"]),
+    (e["mutation"], e["normal"], t["strong"]),
     (e["mutation"], e["plant"], t["neutral"]),
     (e["mutation"], e["poison"], t["somewhat strong"]),
     (e["mutation"], e["radiation"], t["extra weak"]),
@@ -255,22 +256,22 @@ element_effectiveness_list = [
     (e["normal"], e["chaos"], t["somewhat weak"]),
     (e["normal"], e["earth"], t["neutral"]),
     (e["normal"], e["electricity"], t["neutral"]),
-    (e["normal"], e["evil"], t["neutral"]),
+    (e["normal"], e["evil"], t["somewhat strong"]),
     (e["normal"], e["fire"], t["neutral"]),
     (e["normal"], e["holiness"], t["somewhat strong"]),
     (e["normal"], e["ice"], t["neutral"]),
-    (e["normal"], e["metal"], t["somewhat weak"]),
+    (e["normal"], e["metal"], t["neutral"]),
     (e["normal"], e["mutation"], t["somewhat weak"]),
-    (e["normal"], e["normal"], t["somewhat weak"]),
+    (e["normal"], e["normal"], t["neutral"]),
     (e["normal"], e["plant"], t["neutral"]),
     (e["normal"], e["poison"], t["neutral"]),
     (e["normal"], e["radiation"], t["extra weak"]),
     (e["normal"], e["undead"], t["somewhat weak"]),
-    (e["normal"], e["water"], t["neutral"]),
+    (e["normal"], e["water"], t["somewhat strong"]),
     (e["normal"], e["fungus"], t["neutral"]),
 
     (e["plant"], e["typeless"], t["neutral"]),
-    (e["plant"], e["alien"], t["somewhat strong"]),
+    (e["plant"], e["alien"], t["strong"]),
     (e["plant"], e["air"], t["somewhat weak"]),
     (e["plant"], e["chaos"], t["neutral"]),
     (e["plant"], e["earth"], t["strong"]),
@@ -289,10 +290,9 @@ element_effectiveness_list = [
     (e["plant"], e["water"], t["extra strong"]),
     (e["plant"], e["fungus"], t["neutral"]),
 
-
     (e["poison"], e["typeless"], t["neutral"]),
-    (e["poison"], e["alien"], t["somewhat strong"]),
-    (e["poison"], e["air"], t["weak"]),
+    (e["poison"], e["alien"], t["somewhat weak"]),
+    (e["poison"], e["air"], t["neutral"]),
     (e["poison"], e["chaos"], t["somewhat strong"]),
     (e["poison"], e["earth"], t["weak"]),
     (e["poison"], e["electricity"], t["neutral"]),
@@ -307,9 +307,8 @@ element_effectiveness_list = [
     (e["poison"], e["poison"], t["weak"]),
     (e["poison"], e["radiation"], t["somewhat weak"]),
     (e["poison"], e["undead"], t["weak"]),
-    (e["poison"], e["water"], t["strong"]),
+    (e["poison"], e["water"], t["extra strong"]),
     (e["poison"], e["fungus"], t["somewhat weak"]),
-
 
     (e["radiation"], e["typeless"], t["neutral"]),
     (e["radiation"], e["alien"], t["somewhat strong"]),
@@ -352,13 +351,13 @@ element_effectiveness_list = [
     (e["undead"], e["fungus"], t["weak"]),
 
     (e["water"], e["typeless"], t["neutral"]),
-    (e["water"], e["alien"], t["strong"]),
+    (e["water"], e["alien"], t["extra strong"]),
     (e["water"], e["air"], t["somewhat strong"]),
     (e["water"], e["chaos"], t["neutral"]),
     (e["water"], e["earth"], t["extra strong"]),
     (e["water"], e["electricity"], t["weak"]),
     (e["water"], e["evil"], t["neutral"]),
-    (e["water"], e["fire"], t["weak"]),
+    (e["water"], e["fire"], t["extra strong"]),
     (e["water"], e["holiness"], t["neutral"]),
     (e["water"], e["ice"], t["somewhat strong"]),
     (e["water"], e["metal"], t["neutral"]),
@@ -372,7 +371,7 @@ element_effectiveness_list = [
     (e["water"], e["fungus"], t["somewhat weak"]),
 
     (e["fungus"], e["typeless"], t["neutral"]),
-    (e["fungus"], e["alien"], t["weak"]),
+    (e["fungus"], e["alien"], t["neutral"]),
     (e["fungus"], e["air"], t["neutral"]),
     (e["fungus"], e["chaos"], t["somewhat strong"]),
     (e["fungus"], e["earth"], t["somewhat strong"]),
@@ -386,8 +385,8 @@ element_effectiveness_list = [
     (e["fungus"], e["normal"], t["weak"]),
     (e["fungus"], e["plant"], t["somewhat strong"]),
     (e["fungus"], e["poison"], t["somewhat strong"]),
-    (e["fungus"], e["radiation"], t["weak"]),
-    (e["fungus"], e["undead"], t["somewhat strong"]),
+    (e["fungus"], e["radiation"], t["weak"]), # thematic
+    (e["fungus"], e["undead"], t["strong"]),
     (e["fungus"], e["water"], t["somewhat strong"]),
     (e["fungus"], e["fungus"], t["somewhat strong"]),
 ]

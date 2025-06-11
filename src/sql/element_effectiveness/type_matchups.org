@@ -1,0 +1,324 @@
+#+title: Type Matchups
+
+* pokemon
+** weaknesses
+*** bug
+fire, rock, flying
+
+fire burns bugs (mangifiying glass)
+rocks cursh bugs
+birds eat bugs
+*** dark
+dark is also cruelty, evil
+
+bug, fighting, fairy
+
+fighting is honourable combat, martial arts
+good beats evil
+
+fairy is magic and good and joyful
+good beats evil
+
+bugs in japan, insect battling is popular with stag beetles
+bugs are viewed positively
+not a digusting bug, honourable combatant...spiderman
+*** dragon
+dragon, ice, fairy
+
+dragon ,only a dragon can beat a dragon
+
+ice, reptiles bad with cold
+
+fairy, good versus evil, magic, mage slays the dragon
+*** electric
+ground
+
+ground in a circuit
+
+*** fairy
+poison and steel
+
+fairy is healing, good.
+poison is the opposite
+
+steel because mythology
+fairies weak to iron
+*** fighting
+flying, fairy, psychic
+
+flying a bird flies
+
+fairy is magic, karate, can't defeat
+
+psychic brains over brawn
+*** fire
+water, ground, rock
+
+all are used to stop the spread of fire
+*** flying
+rock, ice, electric
+
+rock, 2 birds with one stone
+
+ice, forms on wings
+
+electric, kills birds
+*** ghost
+dark, ghost
+
+spirits consumed by veneance
+
+ghosts weak to themselves, can't phase through eachother
+*** grass
+flying, poison, bug, fire, ice
+
+flying, birds eat seeds
+
+poison, weed killer
+
+bug, bugs eat leaves
+
+fire, burns trees
+
+ice, ice kills plants
+*** ground
+it's earth that's not as hard as stone. soil
+
+water, grass, ice
+
+water, ice erosion
+
+grass, plants grow on ground, sap nutrients
+*** ice
+coldness, snow
+
+rock, steel harder than ice
+
+fire, would melt the ice
+
+fighting, shatter the ice
+*** normal
+weak to fighting
+
+fighting, would beat someone up
+*** poison
+venom, disease, pollution
+
+psychic, ground
+
+psychic, strong mind can fight off illness
+
+ground, rub dirt in wound?
+*** psychic
+mind, telekenesis
+
+bug, ghost, dark
+
+things that people fear. fear is the mindkiller
+*** rock
+grass, water, ground, fighting, steel
+
+grass, water, erosion
+
+ground ? earthquakes?
+
+fighting, martial artists break stone
+
+steel, harder than stone
+*** steel
+fire, ground, fighting
+
+fire, extreme hear melts metal
+
+ground, dulls tools
+
+fighting ? punch through metal ?
+*** water
+grass, electric
+
+grass, suck up water in roots
+
+electric, water conducts electricity
+** immunities
+*** dark
+psychic
+
+sociopath, can't be psyched
+*** fairy
+dragon
+
+dragon weak to magic, mages
+*** flying
+ground
+
+not touching ground
+*** normal
+ghost
+
+phase thorough
+*** ghost
+normal
+
+phase through
+*** ground
+electric
+
+grounding
+*** steel
+poison
+
+steel barrel to hold toxic waste
+
+
+
+* types
+** alien
+*** attacking
+**** strengths
+chaos, metal, normal
+earth, electricity, fire, radiation
+**** weaknesses
+air, alien, fungus ice, un
+*** defending
+**** strengths
+**** weaknesses
+** alien
+*** attacking
+**** strengths
+**** weaknesses
+*** defending
+**** strengths
+**** weaknesses
+** alien
+*** attacking
+**** strengths
+**** weaknesses
+*** defending
+**** strengths
+**** weaknesses
+** alien
+*** attacking
+**** strengths
+**** weaknesses
+*** defending
+**** strengths
+**** weaknesses
+** alien
+*** attacking
+**** strengths
+**** weaknesses
+*** defending
+**** strengths
+**** weaknesses
+** alien
+*** attacking
+**** strengths
+**** weaknesses
+*** defending
+**** strengths
+**** weaknesses
+** alien
+*** attacking
+**** strengths
+**** weaknesses
+*** defending
+**** strengths
+**** weaknesses
+** alien
+*** attacking
+**** strengths
+**** weaknesses
+*** defending
+**** strengths
+**** weaknesses
+** alien
+*** attacking
+**** strengths
+**** weaknesses
+*** defending
+**** strengths
+**** weaknesses
+** alien
+*** attacking
+**** strengths
+**** weaknesses
+*** defending
+**** strengths
+**** weaknesses
+** alien
+*** attacking
+**** strengths
+**** weaknesses
+*** defending
+**** strengths
+**** weaknesses
+** alien
+*** attacking
+**** strengths
+**** weaknesses
+*** defending
+**** strengths
+**** weaknesses
+** alien
+*** attacking
+**** strengths
+**** weaknesses
+*** defending
+**** strengths
+**** weaknesses
+** alien
+*** attacking
+**** strengths
+**** weaknesses
+*** defending
+**** strengths
+**** weaknesses
+** alien
+*** attacking
+**** strengths
+**** weaknesses
+*** defending
+**** strengths
+**** weaknesses
+** alien
+*** attacking
+**** strengths
+**** weaknesses
+*** defending
+**** strengths
+**** weaknesses
+** alien
+*** attacking
+**** strengths
+**** weaknesses
+*** defending
+**** strengths
+**** weaknesses
+** alien
+*** attacking
+**** strengths
+**** weaknesses
+*** defending
+**** strengths
+**** weaknesses
+** alien
+*** attacking
+**** strengths
+**** weaknesses
+*** defending
+**** strengths
+**** weaknesses
+** alien
+*** attacking
+**** strengths
+**** weaknesses
+*** defending
+**** strengths
+**** weaknesses
+** alien
+*** attacking
+**** strengths
+**** weaknesses
+*** defending
+**** strengths
+**** weaknesses

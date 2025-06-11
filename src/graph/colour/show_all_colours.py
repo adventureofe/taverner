@@ -30,7 +30,7 @@ def plot_colors(database_path):
 
     # Define number of rows and columns
     n_colors = len(df)
-    n_rows = 3  # Number of rows to display
+    n_rows = 5  # Number of rows to display
     n_cols = math.ceil(n_colors / n_rows)  # Calculate columns based on total colors
 
     # Create the plot
