@@ -24,6 +24,12 @@ def species_create(connection, cursor, name="species", values=values):
             "height_max INTEGER NOT NULL",
             "weight_min INTEGER NOT NULL",
             "weight_max INTEGER NOT NULL",
+            "hp INTEGER NOT NULL",
+            "melee_atk INTEGER NOT NULL",
+            "melee_def INTEGER NOT NULL",
+            "ranged_atk INTEGER NOT NULL",
+            "ranged_def INTEGER NOT NULL",
+            "speed INTEGER NOT NULL",
         ],
 
         foreign_keys=[
@@ -32,7 +38,7 @@ def species_create(connection, cursor, name="species", values=values):
             "CHECK (weight_min <= weight_max)"
         ],
 
-        values=values,
+       values=values,
 
         # removed
         # t.family AS fid,
@@ -61,7 +67,7 @@ def species_create(connection, cursor, name="species", values=values):
         INNER JOIN species_type AS st ON t.type = st.id;
         ''',
 
-        insert_query = f"INSERT INTO {name} (type, lineage, position, name, name2, height_min, height_max, weight_min, weight_max) VALUES (?, ?, ?, ?, ?, ? ,? ,? ,?)"
+        insert_query = f"INSERT INTO {name} (type, lineage, position, name, name2, height_min, height_max, weight_min, weight_max, hp, melee_atk, melee_def, ranged_atk, ranged_def, speed) VALUES (?, ?, ?, ?, ?, ? ,? ,? ,?,?,?,?,?,?,?)"
     )
 
     table.create(connection, cursor)

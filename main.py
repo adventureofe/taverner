@@ -16,6 +16,13 @@ from src.sql.species_family.species_family import species_family_create
 from src.sql.species_type.species_type import species_type_create
 from src.sql.species.species import species_create
 
+from src.sql.element_effectiveness.element_effectiveness import element_effectiveness_create
+from src.sql.effectiveness_type.effectiveness_type import effectiveness_type_create
+
+from src.sql.chance.chance import chance_create
+
+from src.sql.moveset_species.moveset_species import moveset_species_create
+
 def main() -> int:
     try:
         connection = sqlite3.connect("taverner.db")
@@ -34,6 +41,13 @@ def main() -> int:
         species_family_create(connection, cursor)
         species_type_create(connection, cursor)
         species_create(connection, cursor)
+
+        effectiveness_type_create(connection, cursor)
+        element_effectiveness_create(connection, cursor)
+
+        chance_create(connection, cursor)
+
+        moveset_species_create(connection, cursor)
 
         # make changes permanent
         connection.commit()

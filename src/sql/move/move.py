@@ -18,13 +18,15 @@ def move_create(connection, cursor, name="move", values=values):
             "type INTEGER NOT NULL",
             "category INTEGER NOT NULL",
             "priority INTEGER NOT NULL",
+            "chance INTEGER NOT NULL",
             Config.text("description"),
         ],
 
         foreign_keys=[
             "FOREIGN KEY(element) REFERENCES element(id)",
             "FOREIGN KEY(type) REFERENCES move_type(id)",
-            "FOREIGN KEY(category) REFERENCES move_category(id)"
+            "FOREIGN KEY(category) REFERENCES move_category(id)",
+            "FOREIGN key(chance) REFERENCES chance(id)"
         ],
 
         values=values,
@@ -33,27 +35,33 @@ def move_create(connection, cursor, name="move", values=values):
         SELECT
         t.id AS id,
         t.name AS name,
-        t.power AS power,
+        t.power AS pow,
 
-        t.element AS eid,
+        t.element AS e,
         e.name AS element,
 
-        t.type as tid,
+        t.type as t,
         mt.name as type,
 
-        t.category as cid,
+        t.category as c,
         c.name as category,
 
+
         t.priority as priority,
+
+        t.chance as ch,
+        ch.name as chance,
+
         t.description as description
 
         FROM {name} AS t
         INNER JOIN element AS e on t.element = e.id
         INNER JOIN move_type AS mt on t.type = mt.id
         INNER JOIN move_category AS c on t.category = c.id
+        INNER JOIN chance AS ch on t.chance = ch.id
         ''',
 
-        insert_query = f"INSERT INTO {name} (name, power, element, type, category, priority, description) VALUES (?, ?, ?, ?, ?, ?, ?)"
+        insert_query = f"INSERT INTO {name} (name, power, element, type, category, priority, chance, description) VALUES (?, ?, ?, ?, ?, ?,?, ?)"
     )
 
     table.create(connection, cursor)

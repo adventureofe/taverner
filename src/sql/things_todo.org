@@ -1,0 +1,30 @@
+#+title: Things Todo
+
+* DONE colour
+* TODO element
+** TODO element balance
+** DONE element balance graphs
+* TODO move
+** TODO move balance
+** TODO move graphs
+* TODO moveset
+** TODO moveset_element
+** TODO moveset move category
+** TODO moveset species
+* TODO species
+** TODO species move category
+** TODO species stats
+
+
+* Thoughts - how creatures get elements
+creatures get moves at a (certain level) depending on their species
+they also get moves at a (certain level) depending on their type
+
+currently all fire types get the same moves, all fire type moves.
+
+a fire squirrel should get all squirrel moves but only certain fire moves
+how do we decide
+
+| solutions                                | pros | cons |
+|------------------------------------------+------+------|
+| creatures also have a random move number |      |      |

@@ -1,0 +1,9 @@
+#+title: Notes
+
+* go to cloud formation
+* click create stack
+* use with infrastucture composer
+* template option
+* YML
+infrastrucrure composer template.yaml
+* paste full code here in yaml

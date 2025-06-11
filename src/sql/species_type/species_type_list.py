@@ -8,14 +8,15 @@ species_type_list = [
     ("cat", f["feline"]),
     ("lynx", f["feline"]),
     ("tiger", f["feline"]),
-    ("wild cat", f["feline"]),
+    ("wildcat", f["feline"]),
     ("leopard", f["feline"]),
     ("lion", f["feline"]),
     ("hyena", f["feline"]),
+    ("aardvark", f["aardvark"]),
 
-    ("small dog", f["canine"]),
+    ("smalldog", f["canine"]),
     ("dog", f["canine"]),
-    ("wild dog", f["canine"]),
+    ("wilddog", f["canine"]),
     ("wolf", f["canine"]),
     ("fox", f["canine"]),
     ("bear", f["canine"])

@@ -1,5 +1,3 @@
-#!/usr/bin/env python3
-
 import sys
 import sqlite3
 import pandas as pd
@@ -38,6 +36,7 @@ def element_create(connection, cursor, name="element", values=values):
         m.name as type
 
         FROM {name} AS t
+
         INNER JOIN colour AS c ON t.colour = c.id
         INNER JOIN move_type AS m ON t.type = m.id
         ''',
